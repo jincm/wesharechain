@@ -1,0 +1,85 @@
+
+
+
+
+
+
+              <?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>项目动态 &#8211; WeShare链</title>
+	<atom:link href="http//www.wesharechain.net/archives/category/project-dynamic/feed" rel="self" type="application/rss+xml" />
+	<link>http//www.wesharechain.net</link>
+	<description>基于区块链技术溯源一切，促进经济协作</description>
+	<lastBuildDate>Tue, 18 Dec 2018 07:05:42 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http//wordpress.org/?v=4.8.9</generator>
+
+<image>
+	<url>http//www.wesharechain.net/wp-content/uploads/2017/12/xlogo1-03-150x150.png</url>
+	<title>项目动态 &#8211; WeShare链</title>
+	<link>http//www.wesharechain.net</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>积木云 &#124; 设计就区块链技术的新一代TCP/IP</title>
+		<link>http//www.wesharechain.net/archives/3905</link>
+		<pubDate>Mon, 17 Sep 2018 05:31:35 +0000</pubDate>
+		<dc:creator><![CDATA[jiangyao]]></dc:creator>
+				<category><![CDATA[项目动态]]></category>
+
+		<guid isPermaLink="false">http//www.wesharechain.net/?p=3905</guid>
+		<description><![CDATA[与积木云交流搭建区块链+底层网络协议体系的相关事宜]]></description>
+		</item>
+		<item>
+		<title>爱尚坊食品 &#124; 用区块链+溯源产品对其定制化食品进行应用</title>
+		<link>http//www.wesharechain.net/archives/3899</link>
+		<pubDate>Mon, 17 Sep 2018 05:29:01 +0000</pubDate>
+		<dc:creator><![CDATA[jiangyao]]></dc:creator>
+				<category><![CDATA[项目动态]]></category>
+
+		<guid isPermaLink="false">http//www.wesharechain.net/?p=3899</guid>
+		<description><![CDATA[与爱尚坊食品交流区块链+溯源技术应用的相关事宜]]></description>
+		</item>
+		<item>
+		<title>IUIA &#124; 将区块链技术引入传统产业孵化器生态</title>
+		<link>http//www.wesharechain.net/archives/3893</link>
+		<pubDate>Mon, 17 Sep 2018 05:23:25 +0000</pubDate>
+		<dc:creator><![CDATA[jiangyao]]></dc:creator>
+				<category><![CDATA[项目动态]]></category>
+
+		<guid isPermaLink="false">http//www.wesharechain.net/?p=3893</guid>
+		<description><![CDATA[与IUIA交流和推进基于WeShare链平台的“区块链+ 产业孵化器”生态合作事宜]]></description>
+		</item>
+		<item>
+		<title>英诺尔 &#124; 推进物联网脚环选型的相关事宜</title>
+		<link>http//www.wesharechain.net/archives/3889</link>
+		<pubDate>Mon, 17 Sep 2018 05:20:33 +0000</pubDate>
+		<dc:creator><![CDATA[jiangyao]]></dc:creator>
+				<category><![CDATA[项目动态]]></category>
+
+		<guid isPermaLink="false">http//www.wesharechain.net/?p=3889</guid>
+		<description><![CDATA[与英诺尔推进物联网脚环选型的相关事宜]]></description>
+		</item>
+		<item>
+		<title>厚元资本 &#124; 拟推进与某地方政府在区块链应用上的合作</title>
+		<link>http//www.wesharechain.net/archives/3885</link>
+		<pubDate>Mon, 17 Sep 2018 05:18:30 +0000</pubDate>
+		<dc:creator><![CDATA[jiangyao]]></dc:creator>
+				<category><![CDATA[项目动态]]></category>
+
+		<guid isPermaLink="false">http//www.wesharechain.net/?p=3885</guid>
+		<description><![CDATA[与厚元资本交流WeShare链平台“区块链+产业”应用合作的相关事宜]]></description>
+		</item>
+	</channel>
+</rss>

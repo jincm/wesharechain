@@ -1,0 +1,115 @@
+apicloud开发注意事项:
+http://community.apicloud.com/bbs/forum.php?mod=viewthread&tid=7926&extra=page%3D1
+
+1 页面间如何传递数据,保存数据
+$api.setStorage(key, restData);
+restData = $api.getStorage(key);
+
+or:
+HTML5 提供了两种在客户端存储数据的新方法：
+localStorage - 没有时间限制的数据存储
+sessionStorage - 针对一个 session 的数据存储
+
+localStorage.setItem('msg', str);
+msg = localStorage.getItem('msg');
+
+or:
+偏好设置（setPrefs，getPrefs，removePrefs）
+
+2 key.xml
+您可以在res/key.xml中配置多个键值对，然后编译时，云服务器会自动加密 key.xml文件。 
+在应用内，您可以通过api.loadSecureValue方法，获取指定的 key 对应的值
+
+3 oss直接上传：
+http://bbs.aliyun.com/read/262307.html?spm=5176.bbsr263341.0.0.2BgUZk
+
+4 布局关键字：
+1 尽量少用apicloud提供的布局模块，能自己写的尽量用html自己写，避免被平台锁定；
+2 .header {height:30px; text-align:center;}
+  .nav {height:30px;text-align:center;}
+  
+   <body>
+   <div id = "head" class = "header">head</div>
+   <div id = "nva" class = "nav"> nva </div>
+   
+	
+	api.openFrame({
+	name:""
+	url:""
+	rect:{x,y,w,h}
+	});
+	
+
+	apiready = function() {
+		func1();
+	}	
+	
+	api.setRefreshHeaderInfo({
+	},function (ret,err){
+	//coding
+	//query db
+	//check if has new db
+	//update db
+	
+	//end
+	api.refreshHeaderLoadDone();
+	}
+	
+3 window/frame/framegroup
+  窗口/子窗口
+  
+ widget/子widget
+ 
+4 actionsheet
+  
+5 布局用CSS3的 Flexbox布局模块（css+div）
+
+6 doT.min.js
+原生的 部分： 
+dot的API里有以下几种标签
+
+//{{ }} JS原生态代码
+//{{= }}	变量运算，赋值 {{=it.f1 + it.f2}}
+//{{! }}	赋值并且编码
+//{{# }} 
+//{{## #}} 
+上面两个没有仔细研究，基本我也不用它
+//{{? }}	条件语句
+//{{~ }}	循环
+
+其实条件语句和循环可以用{{if}}{{else if}}{{for(var i=0;i<length;i++)}}来代替，也就是JS的原生态代码
+
+7 Zepto是jquery的手机版
+
+8 注意：文件名千万不要用中文，否则真机调试时可能出现很奇怪的问题；
+  手机app的路径：/storage/emulated/0/UZMap/wgt/A6997127723784(最后的A*****是appid)
+  
+9 chat需要将./node_modules/socket.io/node_modules/socket.io-client/socket.io.js下载到项目中script(目前已放)
+
+
+Next:
+app:
+1 动态页面完善：
+   可以评论/点赞/点赞数/评论数/post时间+查看user信息+发布动态完善
+2 user信息：关注/对话/好友请求
+ app的数据结构：msg保存/好友保存/个人的信息
+3 lost/有你的各个页面完善
+
+4 消息/通信录
+5 个人设置
+6 群组创建/加入/群聊
+7 配色
+8 重构+测试
+
+
+server
+1 消息队列
+2 聊天服务器
+3 oss直接上传
+
+部署上线；
+dns
+lb+redis+oss+cdn
+apple账号
+
+广告：

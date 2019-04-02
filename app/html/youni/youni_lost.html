@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="copyright" content="www.apicloud.com" />
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+<title>附近动态</title>
+<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+<link rel="stylesheet" type="text/css" href="../../css/idangerous.swiper.css">
+<style>
+html,body {min-height: 100%;}
+.fr {float: right;}
+.fl {float: left;}
+.mt5 {margin-top: 5px;}
+.mt10 {margin-top: 10px;}
+.mt15 {margin-top: 15px;}
+.mt20 {margin-top: 20px;}
+.ml5 {margin-left: 0.5em;}
+.mr5 {margin-right: 0.5em;}
+.hdivider {width: 100%; height: 1px;background-color: #e0e0e0;}
+
+.row {display: -webkit-box;display: -webkit-flex;}
+.col {-webkit-box-flex:1; -webkit-flex:1; flex:1;margin: 0 5px; position: relative;}
+
+.swiper-container img {width: 100%;}
+
+/* 标题 */
+.sectionTitle {height: 2em; line-height: 2em; font-size: 1.12em;}
+.sectionTitle .titleDivider {display: inline-block; height: 1.12em; width: 3px; vertical-align: top; background-color: #D43C33; margin-top: 0.44em; margin-left: 0.7em; margin-right: 0.3em;}
+/* */
+.col .listcoverbar {position: absolute; top: 0; background-color: rgba(0,0,0,0.4); width: 100%;height: 1.2em;}
+.col .listcoverbar span {color: #fff;}
+.col .listcoverbar .earphone {width: 1em; margin-top: 0.2em; margin-right: 0.3em;}
+.col .listcover {width: 100%;}
+.col .listtitle {height: 2.4em; font-size: 1em; line-height: 1.2em; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}
+
+/* item样式 */
+.egret-item {height: 4em;}
+.egret-item .egret-item-box-cover-center {display: table; height: inherit;}
+.egret-item .egret-item-box-cover-center .egret-item-box-abtc {display: table-cell; vertical-align: middle;}
+.egret-item .egret-item-box-cover-center .egret-item-box-abtc img {width: 3em; vertical-align: top;}
+/* 右侧箭头样式 */
+.egret-item .egret-item-arrow {display: table; height: inherit;}
+.egret-item .egret-item-arrow .egret-item-box-abtc {display: table-cell; vertical-align: middle;}
+.egret-item .egret-item-arrow .egret-item-box-abtc img {width: 0.8em; vertical-align: top;}
+/* 中间shelf  两个条目*/
+.egret-item .egret-item-shelf {height: inherit; }
+.egret-item .egret-item-shelf .egret-item-shelf-title {font-size: 1.1em; margin-top: 0.6em;}
+.egret-item .egret-item-shelf .egret-item-shelf-subtitle {font-size: 0.6em; color: #666; margin-top: 0.6em;}
+/* 中间shelf 一个条目 */
+.egret-item .egret-item-shelf-single {height: inherit; line-height: 4em;font-size: 1.1em;}
+.egret-item .egret-item-shelf-redclassify {color: #E03F40; border:1px solid #E03F40; font-size: inherit;padding: 0.1em;border-radius: 1px;margin-right: 5px;}
+
+
+/* 用flex重写框架 */
+.egret-flex-item {display: -webkit-box;-webkit-box-align:center;height: 4em;}
+/* 左部logo */
+.egret-flex-item-logo {max-width: 50px; min-width: 50px; margin-left: 0.5em; margin-right: 0.2em;-webkit-box-flex: 1; -webkit-box-align: center;}
+.egret-flex-item-logo img {height: 3em; width: 3em; -webkit-box-align: center;vertical-align: top;/*否则图片不会居中，底部仍然是会有空白*/}
+/* 中间文本信息 */
+.egret-flex-item-shelf {overflow: hidden; -webkit-box-flex:2; -webkit-box-align: center;}
+.egret-flex-item-shelf div {text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+.egret-flex-item-shelf .egret-flex-item-shelf01 {font-size: 1.1em;}
+.egret-flex-item-shelf .egret-flex-item-shelf02 {font-size: 0.6em; color: #666; margin-top: 0.6em;}
+.egret-flex-item-shelf .egret-flex-item-redclassify {color: #E03F40; border: 1px solid #E03F40; font-size: inherit; padding: 0 0.1em; border-radius: 1px; margin-right: 5px;box-sizing: border-box;}
+
+/* 右部箭头 */
+.egret-flex-item-arrow {-webkit-box-flex: 1;max-width: 10px; min-width: 10px; margin-right: 5px;}
+.egret-flex-item-arrow img {width: 100%; max-width: 10px;}
+
+
+/* 关注card */
+.sharecard {display: -webkit-box;margin-left: 10px;margin-right: 10px;margin-top: 10px;padding: 10px 10px 15px 10px;border: 1px solid #e0e0e0;background-color: #fff;}
+.sharecard .userlogo {margin-right: 10px;}
+.sharecard .userlogo img {width: 40px;vertical-align: top;border-radius: 20px;}
+.sharecard .rightcol {-webkit-box-flex: 1;}
+.sharecard .rightcol .usertitle {font-size: 0.9em; color: #666;}
+.sharecard .rightcol .usertitle .username{font-size: 1em; color: #507DAF; margin-right: 5px;}
+.sharecard .rightcol .usertitle .sharetime{float: right; font-size: 0.6em; color: #999;}
+.sharecard .rightcol .sharecontent {font-size: 1em; line-height: 1.3em;padding-top: 5px;}
+.sharecard .rightcol .sharemusic{display: -webkit-box;margin-top: 15px;border: 1px solid #e0e0e0;-webkit-box-align: center;}
+.sharecard .rightcol .sharemusic .musiclogo {padding: 5px;}
+.sharecard .rightcol .sharemusic .musiclogo img {vertical-align: top;width: 60px;}
+.sharecard .rightcol .sharemusic .musictitle {}
+.sharecard .rightcol .sharemusic .musictitle .title02 {font-size: 0.8em;color: #666;margin-top: 10px;}
+.sharetool {display: -webkit-box; height: 30px; line-height: 30px; margin: 0 10px 10px 10px;border: 1px solid #e0e0e0; border-top: 0;background-color: #fff;}
+.sharetool .tool {-webkit-box-flex:1;text-align: center;}
+.sharetool .tool span {font-size: 0.8em; color: #666;}
+.sharetool .tool img {width: 16px;vertical-align: top;padding: 7px;}
+
+/* 悬浮 */
+.fmbtnhover {background: #D8D9DA ;}
+.fmbtnhoverinside {background: #D8D9DA ;}
+
+</style>
+</head>
+
+<body>
+
+
+<!--D:\srccode\zuohaoshi\client\demo\wangyimusic20141207\html\third_frame\frame0301.html-->
+
+<div class="sectionTitle mt20" id="data_div"></div>
+
+<script id="mytmpl" type="text/x-dot-template">
+{{ if(it && it.length > 0){ }}
+	{{ for(var i=0;i<it.length;i++){ }}	
+		{{ if(it[i].postid){ }}
+		<div class="sharecard" tapmode="fmbtnhover" onclick="openDetail('near','update',{{=it[i].postid}})">
+		{{ }else{ }}
+		<div class="sharecard" tapmode="fmbtnhover" onclick="openDetail('near','update','1111111111')">
+		{{ } }}
+			<div class="userlogo"><img src="../../image/test/frame0103cover02.jpg" alt=""></div>
+			<div class="rightcol">
+				<div class="usertitle">
+					{{ if(it[i].name){ }}
+					<span class="username">{{=it[i].name}}</span>24 学生<span class="sharetime">昨天17:23</span>
+					{{ }else{ }}
+					<span class="username">路人甲</span>24 学生<span class="sharetime">昨天17:23</span>
+					{{ } }}
+				</div>
+				{{ if(it[i].content){ }}
+				<p class="sharecontent">{{=it[i].content}}</p>
+				{{ }else{ }}
+				<p class="sharecontent">三十年来寻剑客，几回落叶又抽枝。 自从一见桃花后，直至如今更不疑。沩山览偈，诘其所悟，与之符契。嘱曰：从缘悟达，永无退失，善自护持。</p>
+				{{ } }}
+				
+				{{ if(it[i].postid){ }}
+				<div class="sharemusic" tapmode="fmbtnhoverinside" onclick="openDetailImg('near','update',{{=it[i].postid}})">
+				{{ }else{ }}
+				<div class="sharemusic" tapmode="fmbtnhoverinside" onclick="openDetailImg('near','update','1111111')">
+				{{ } }}
+					<div class="musiclogo"><img src="../../image/test/frame0103cover02.jpg" alt=""></div>
+					<div class="musiclogo"><img src="../../image/test/frame0103cover03.jpg" alt=""></div>
+					<div class="musiclogo"><img src="../../image/test/frame0103cover04.jpg" alt=""></div>
+					<div class="musiclogo"><img src="../../image/test/frame0103cover05.jpg" alt=""></div>
+					
+					<!--<div class="musictitle">
+						<div class="title01">「December」</div>
+						<div class="title02">&nbsp;&nbsp;有你有我</div>
+					</div> -->
+				</div>
+			</div>
+		</div>
+
+		{{ if(it[i].postid){ }}
+		<div class="sharetool" tapmode="fmbtnhoverinside" onclick="doComment('near','update',{{=it[i].postid}})">
+		{{ }else{ }}
+		<div class="sharetool" tapmode="fmbtnhoverinside" onclick="doComment('near','update','1111111')">
+		{{ } }}
+
+			<div class="tool01 tool"><img src="../../image/near/read.png" alt=""><span class="tool01num">175</span></div>
+			<div class="tool02 tool"><img src="../../image/near/zan.jpg" alt=""><span class="tool02num">199</span></div>
+			<div class="tool03 tool"><img src="../../image/near/faq.png" alt=""><span class="tool03num">198</span></div>
+		</div>
+	{{ } }}
+	
+{{ }else{ }}
+	<li>没有数据</li>
+{{ } }}
+</script>
+
+
+
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/idangerous.swiper.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../../script/app.js"></script>
+
+<script type="text/javascript"  charset="utf-8">
+
+function openDetail(grouptype,type,did) {
+	winName = grouptype + "_" + type + "_detail"
+	winUrl = winName + "_win.html"
+    api.openWin({
+        name: winName,
+        url: winUrl,
+        pageParam: {dataId: did}
+    });
+}
+
+function openDetailImg(grouptype,type,did) {
+	alert("应该弹出来个图片");
+}
+
+function doComment(grouptype,type,did) {
+	alert("应该评论或赞++");
+}
+
+
+var headerPos;
+
+window.onload = function() {
+}
+
+apiready = function  () {
+	console.log("come setFrameGroupIndex:win name:" + api.winName + " framename:" + api.frameName);
+
+	var pageSize=10; // 页容量
+	var totalData=0;  // 定义一个变量存储第一次加载返回来的总记录数
+	var totalPages=0;  // 定义一个变量存储第一次加载返回来的总页数
+	var tmp_html = "";
+	$api.setStorage("currentPage", 1); // 默认设置为第一页
+	
+	// 加载数据
+	// @currentPage:当前页码
+	// @isReload：是否为刷新操作
+	function loadData(currentPage,isReload){
+	        currentPage=isReload?1:currentPage;
+			
+			user_id = $api.getStorage("user_id");
+			//token = $api.getStorage("token");
+			url = "/u/" + "/users/search?loc_x=116&loc_y=40" + "&limit=" + pageSize + "&offset=" + currentPage;
+			myajax(url,'GET','', function(ret,err){
+                if (ret) {
+                    //totalData=ret.totalCount;
+                    //totalPages=ret.totalPages;
+                    //var data=ret.data; 
+					/*
+						{
+						   pageSize:10,  // 页码
+						   currentPage:1,  // 当前页
+						   totalCount:100,  // 总记录数
+						   totalPages:10,   // 总页数
+						   data:[           // 当前页查询的记录
+						           {id:1,name:'新生帝',age:22},
+						           {id:2,name:'流浪男',age:28}
+						   ]
+						}
+					*/
+                    totalData = 10;
+                    totalPages = 8;                  
+                    if(isReload){
+                            $api.setStorage("currentPage", 1);        // 重新设置为1
+                            tmp_html = "";
+                    }
+                    
+                    // 渲染HTML                    
+					//get data from server
+					var obj = [ {"name":"test" + currentPage + "_1","content":"this is test1 lost"},
+								{"name":"test" + currentPage + "_2","content":"this is test2 lost"},
+								{"name":"test" + currentPage + "_3","content":"this is test3 lost"},
+								{"name":"test" + currentPage + "_4","content":"this is test4 lost"} ];
+					
+				    var data_div = $api.byId('data_div');
+				    var tpl = $api.byId('mytmpl').text;
+				    var tempFn = doT.template(tpl);
+				    data_div.innerHTML = tmp_html + tempFn(obj); //current html + cache html
+				    tmp_html += tempFn(obj);                               
+                }else {
+                        api.alert({
+                                msg:('错误码：'+err.code+'；错误信息：'+err.msg+'；网络状态码：'+err.statusCode)
+                        });
+                }
+        });
+	}
+	
+	// 结合下拉刷新
+	api.setRefreshHeaderInfo({
+	        visible: true,
+	        loadingImg: 'widget://image/near/refresh.png',
+	        bgColor: '#ccc',
+	        textColor: '#fff',
+	        textDown: '下拉刷新...',
+	        textUp: '松开刷新...',
+	        showTime: true
+	}, function(ret, err){
+	
+	        loadData(1,true); // 第一次加载
+	        api.refreshHeaderLoadDone();
+	});
+	
+	// 默认第一次打开页面就下拉加载数据
+	api.refreshHeaderLoading(); 
+	
+	
+	// 结合上拉刷新：
+	api.addEventListener({
+		name:'scrolltobottom',
+		extra:{
+		        threshold:0 //设置距离底部多少距离时触发，默认值为0，数字类型
+		}
+	},function(ret,err){
+		var _page=parseInt($api.getStorage("currentPage"));
+		if(_page+1<=totalPages){
+			loadData(_page+1,false);
+			$api.setStorage("currentPage", _page+1); // 页码+1
+		}
+		else{
+			alert("没有更多数据了！");
+		}
+	});
+
+}
+</script>
+</html>

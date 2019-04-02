@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>图片批量上传</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/aui/aui-win.css" />
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<header class="aui-bar aui-bar-nav aui-bar-dark" id="aui-header">
+			<a class="aui-pull-left"> </a>
+			<div class="aui-title">
+				发布朋友圈
+			</div>
+		</header>
+	</body>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript">
+		// 解决状态栏重合，并优化fixStatusBar代码,Android4.4版本以上添加25px
+		function fixStatusBar(headerid, callback) {
+			var header = $api.byId(headerid);
+			var systemType = api.systemType;
+			var systemVersion = parseFloat(api.systemVersion);
+			if (systemType == "ios" || (systemType == "android" && systemVersion >= 4.4)) {
+				if (systemType == "android") {
+					header.style.paddingTop = '25px';
+				}
+				$api.fixStatusBar(header);
+			} else {
+				$api.fixIos7Bar(header);
+			}
+			var headerPos = $api.offset(header);
+			if ( typeof callback == "function") {
+				callback(headerPos);
+			}
+		}
+
+		apiready = function() {
+			fixStatusBar("aui-header", function(headerPos) {
+				console.log("winName is " + api.winName);
+				console.log("frameName is " + api.frameName);
+				// 操作功能列表页面
+				api.openFrame({
+					name : 'lost_frame',
+					url : '../../html/contacts/add_groups_frame.html',
+					rect : {
+						x : 0,
+						y : headerPos.h,
+						w : api.winWidth,
+						h : api.winHeight - headerPos.h
+					},
+					pageParam : {},
+					bounces : false,
+					vScrollBarEnabled : false,
+					hScrollBarEnabled : false
+				});
+			});
+		};
+	</script>
+</html>

@@ -1,0 +1,89 @@
+
+
+
+
+
+
+              <?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>新闻报道 &#8211; WeShare链</title>
+	<atom:link href="http//www.wesharechain.net/archives/category/news/feed" rel="self" type="application/rss+xml" />
+	<link>http//www.wesharechain.net</link>
+	<description>基于区块链技术溯源一切，促进经济协作</description>
+	<lastBuildDate>Tue, 18 Dec 2018 07:05:42 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http//wordpress.org/?v=4.8.9</generator>
+
+<image>
+	<url>http//www.wesharechain.net/wp-content/uploads/2017/12/xlogo1-03-150x150.png</url>
+	<title>新闻报道 &#8211; WeShare链</title>
+	<link>http//www.wesharechain.net</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>WeShare链项目周报——2018年9月30日</title>
+		<link>http//www.wesharechain.net/archives/3931</link>
+		<pubDate>Sun, 30 Sep 2018 02:56:14 +0000</pubDate>
+		<dc:creator><![CDATA[jiangyao]]></dc:creator>
+				<category><![CDATA[热门推荐]]></category>
+
+		<guid isPermaLink="false">http//www.wesharechain.net/?p=3931</guid>
+		<description><![CDATA[NO.1 生态建设 1、与01002 丰瑞祥推进区块链项目合作事宜,将WeShare链区块链技术服务功能清单提供给其客户,并由双方商务进行对接推进中。 2、与01069 旗点商学院就推进区块链技术及应用改革合作进行了沟通,双方达成合作共识,WeShare链将作为技术应用伙伴为地方政府链改实验区提供技术实施等。 3、与01055 工信链就推进区块链技术在工业物联网上的应用事宜进行了磋商,并形成了合作共识,WeShare链将提供区块链及应用技术支撑,推进项目的合作与落地。 4、与01052 无极道控股集团及WeShare链溯源技术的深度应用进行了多轮交流,对方发起的“区块链+“千县千品根源行”招商会获得了很好的市场效果。 5、继续与01048 包装e线继续推进虚拟商品合作的事宜,完成了技术对接的流程设计,并进行了功能的开发和实现。 6、与01058 IUIA 讨论在义乌开展文化创意、动漫设计的业务合作事宜,对方已经启动了义乌公司的注册事宜,并将联合日本的动漫学院开展基于区块链技术的文创平台交易的相关事宜。 7、与01056 厚元资本对接山东寿光“智汇寿光,创赢未来”的项目合作事宜,山东寿光政府拟在智慧农业上进行深度的科技创新,打造地域品牌农业,促进产业发展。 NO.2 社群品牌建设 1、WeShare链社区发起人仁兄受邀参加全球第一部链改蓝皮书发布会，并签订了中国区块链技术改革联盟行动倡议书。在会议现场，仁兄就链改和项目做了分享和路演，认为推进区块链技术及应用改革，帮助优秀项目与应用场景进行对接落地，能够实现赋能实体经济转型和升级。 2、WeShare链联合创始人张湧受小雨智媒的邀请，做了以“积分还是通证？通证模型的合规设计”为主题的演讲。 [&#8230;]]]></description>
+		</item>
+		<item>
+		<title>全球第一部链改蓝皮书发布会，对于链改仁兄有话说</title>
+		<link>http//www.wesharechain.net/archives/3917</link>
+		<pubDate>Sat, 29 Sep 2018 07:14:02 +0000</pubDate>
+		<dc:creator><![CDATA[jiangyao]]></dc:creator>
+				<category><![CDATA[新闻报道]]></category>
+		<category><![CDATA[热门推荐]]></category>
+
+		<guid isPermaLink="false">http//www.wesharechain.net/?p=3917</guid>
+		<description><![CDATA[WeShare链发起人仁兄受邀参加全球第一步链改蓝皮书发布会，并签订了中国区块链技术改革联盟行动倡议书]]></description>
+		</item>
+		<item>
+		<title>WeShare链项目周报——2018年9月14日</title>
+		<link>http//www.wesharechain.net/archives/3866</link>
+		<pubDate>Mon, 17 Sep 2018 03:41:12 +0000</pubDate>
+		<dc:creator><![CDATA[jiangyao]]></dc:creator>
+				<category><![CDATA[新闻报道]]></category>
+		<category><![CDATA[热门推荐]]></category>
+
+		<guid isPermaLink="false">http//www.wesharechain.net/?p=3866</guid>
+		<description><![CDATA[NO.1 生态建设 1、与01048 包装e线继续推进虚拟商品合作的事宜,将WeShare链原生通证与其商城产品进行锚定,实现通证作为置换凭证获得特定商品的功能。 2、与01058 IUIA 联合付义务向地方政府官员汇报区块链技术在义务小商品产业机构优化与服务升级上应用机会,并与小商品集团调研小商品交易市场。区块链技术在商品知识产权、市场销售管理、跨境贸易、跨境支付结算上可以发挥重要的作用。 3、继续与01063积木云交流搭建区块链+底层网络协议体系的相关事宜,双方在深圳就技术实现模式等进行了充分的交流。积木云是区块链技术的新一代TCP/IP,用以升级和改造现有互联网,为应用层提供更好的动态性、可信性、激励性、安全性等。 4、与01018中国投资协会继续对接“全国特色产品擂台赛”合作的相关事宜。拟借助“金融教育巡讲中国行”活动讲该项目进行政府对接。 5、与01065快乐蛋推进“区块链+游戏”模式的合作,在WeShare链基础网络上实现轻量级的娱乐互动性游戏来实现实体鸡蛋的销售。 6、与01058 IUIA联合推进区块链技术在河南洛阳落地的事宜,与洛阳地方政府合作在WeShare链基础网络上实现“区块链+文旅”模式的搭建与商业化运作。 7、与01021航天德利推进“区块链+溯源”在新零售业务上的合作,拟将WeShare链溯源解决方案纳入其新零售设备销售服务体系内,为银行提供特色优质产品的积分兑换服务。 8、与01052无极道控股集团推进2018年“区块链+千县千品根源行”暨千城合伙人+千企特优产品联盟新闻发布会事宜。 NO.2 社群品牌建设 1、WeShare链接受起风财经的区块链产业应用专访, 京溯安链科技有限公司联合创始人受 [&#8230;]]]></description>
+		</item>
+		<item>
+		<title>WeShare链项目周报——2018年9月7日</title>
+		<link>http//www.wesharechain.net/archives/3859</link>
+		<pubDate>Fri, 14 Sep 2018 06:09:21 +0000</pubDate>
+		<dc:creator><![CDATA[jiangyao]]></dc:creator>
+				<category><![CDATA[新闻报道]]></category>
+		<category><![CDATA[热门推荐]]></category>
+
+		<guid isPermaLink="false">http//www.wesharechain.net/?p=3859</guid>
+		<description><![CDATA[NO.1 生态建设 1、与01059 爱尚坊食品交流区块链+溯源技术应用的相关事宜。用区块链+溯源产品对其定制化食品进行应用，提升产品竞争力。 2、与01048 包装e线继续推进虚拟商品合作的事宜，完成了模式的确定，将WeShare链原生通证与其商城产品进行锚定，实现通证作为置换凭证获得特定商品的功能。 3、与01023清华大学互联网产业研究院继续推进WeShare链产业应用案例收录的事情。下一步推进案例的撰写并推进合作。 4、与01055工信链继续推进基于WeShare链平台的“区块链+溯源+通用积分”应用合作的相关事宜，尝试推进溯源平台在地方传统产业领域的应用切入，将区块链赋能实体产业发展。 5、与01060 持云交流区块链+溯源的相关应用的事宜。持云拥有产业链管理、人事协同、质量管理和生产管理等功能的云软件没，服务的企业主要为食品，医疗，汽车零配件，电商，服装等。 6、与01061高原腾飞交流区块链+溯源与甘肃地方政府合作的相关事宜，拟借助WeShare链的区块链技术服务能力，来赋能地方传统产业。 7、与01062 小微金融服务机构沟通区块链+供应链管理应用的相关事宜。用区块链技术的数据不可窜改和数据可回溯原理来实现对企业业务流进行可信管理，提供科学化的小微金融服务。 8、与01063积木云交流搭建区块链+底层网络协议体系的相关事宜，设计就区块链技术的新一代TCP/IP，用以升级和改造现有互联网，为应用层提供更好的动态性、可信性、激励性、安全性等。 9、与01058 IUIA继续推进基于WeShare链平台的“区块链+ 产业孵化器”生态合作事宜。下一步就具体落地进行磋商。孵化器生态可以引入通证经济原理来进行构建。 10、 [&#8230;]]]></description>
+		</item>
+		<item>
+		<title>WeShare链项目周报——2018年8月31日</title>
+		<link>http//www.wesharechain.net/archives/3820</link>
+		<pubDate>Fri, 31 Aug 2018 05:30:23 +0000</pubDate>
+		<dc:creator><![CDATA[jiangyao]]></dc:creator>
+				<category><![CDATA[新闻报道]]></category>
+		<category><![CDATA[热门推荐]]></category>
+
+		<guid isPermaLink="false">http//www.wesharechain.net/?p=3820</guid>
+		<description><![CDATA[生态建设 1、与01002丰瑞祥签署了基于WeShare链平台的“区块链+溯源+积分”应用战略合作协议.双方将在WeShare链之上实现商业积分发行与流通、澳门食药品监管等开展深度合作。目前,商业积分系统正在紧张开发中。 2、与01016 合电站交流基于WeShare链平台的“区块链+信息溯源+业务撮合”应用合作,对方正在安排整理业务需。下一步将推进需求的明确和技术实现逻辑设计等。 3、与00879新奕禾集团继续推进基于WeShare链平台的“区块链+游戏+实体产业”的应用合作落地事宜,商议游戏平台(工商)搭建和游戏推广等.下一步将推进和落实各项准备工作。 4、与01055工信链交流基于WeShare链平台的“区块链+溯源+通用积分”应用合作的相关事宜,尝试推进溯源平台在地方传统产业领域的应用切入.帮助传统产业的商品(如工艺美术品等)进行更好的流通。 5、与1039上海万申信息产业股份有限公司继续推进基于WeShare链平台的“区块链+溯源+精准营销”应用合作的相关事宜,了解消费者端如何进行查验次数的控制和供应链条上的渠道管理等技术实现等。 6、与01056厚元资本交流WeShare链平台“区块链+产业”应用合作的相关事宜.鉴于WeShare链的应用落地成果较为领先,拟推进WeShare链与某地方政府在区块链应用上的合作可能性。 7、与01057英诺尔推进物联网脚环选型的相关事宜,针对大闸蟹物联网感应脚环进行了深度交流,了解和掌握脚环的成本核算和控制等。 8、与01058 IUIA交流和推进基于WeShare链平台的“区块链+ 产业孵化器”生态合作事宜,双方讨论推进如何将区块链技术引入传统产业孵化器生态上,帮助孵化器内企业和生态能够进行深度黏合,并实现企业的资产数字化等。 9 [&#8230;]]]></description>
+		</item>
+	</channel>
+</rss>

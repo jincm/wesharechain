@@ -1,0 +1,824 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>有你有我</title>
+    <link rel="stylesheet" type="text/css" href="./css/api.css" />
+    <link rel="stylesheet" type="text/css" href="./css/common.css" />
+    
+    <style>
+     
+    /* 头部样式 */
+    #nearHeader {background-color:  #D43C33;}
+    #youniHeader {background-color:  #D43C33;}
+    #messageHeader {background-color:  #D43C33;}
+    #contactsHeader {background-color:  #D43C33;}
+    #fortheader {background-color:  #D43C33;}
+
+    .topbar {background: #D43C33; height:50px; border-bottom: 1px solid #DDDFE3;position: relative;}
+    .topbar_title {display: inline-block;font-size: 20px; line-height: 50px;padding-left: 12px;}
+    .hr01, .hr02 {height: 28px;}
+    .headerico {padding: 11px 15px 11px 15px;}
+    .headericohover {background: #DADDE0;}
+    .fr{float: right;}
+    .fl{float: left;}
+    .pa {position: absolute;}
+    img {vertical-align: top;}
+
+     /*第一头部*/
+    .egret-header-box {height: 50px;}
+    .egret-img img {height: 30px;padding: 10px;}
+    .egret-header-search {background-color: #fff; position: absolute; left: 60px; right: 20px; height: 34px; margin-top: 8px;border-radius: 4px;}
+    .egret-header-search img {margin-left: 30px; height: 20px; margin-top: 7px;}
+    .egret-header-search input {line-height: 24px;font-size: 14px;padding-top: 5px;}
+    .egret-header-search input:focus {/*border:0;*/ outline:none;}
+
+     /* 第二头部 */
+    .egret-header-text {line-height: 50px;color: #fff;font-size: 16px;padding: 0 10px;}
+    .egret-header-title {position: absolute;width: 100%;text-align: center;line-height: 50px;color: #fff;font-size: 20px;}
+
+
+    /* 第三头部 */
+    .egret-switchframe {position: absolute; left: 90px; right: 90px;background-color: #fcfcfc;text-align: center;height: 30px;line-height: 30px;bottom: 10px;border-radius: 4px;color: #fff;border: 1px solid #fff;}
+    .egret-switchframe div {width: 50%;display: inline-block;color: #fff;background-color: #D43C33;}
+    .egret-switchframe div:first-child {border-radius: 4px 0 0 4px;}
+    .egret-switchframe div:last-child {border-radius: 0px 4px 4px 0px;}
+    .egret-switchframe-selectswitch {background-color: #fff !important;color: #D43C33 !important;}
+
+     /* 头部切换样式 */
+     .titlebar {display: none;}
+     .activebar {display: block;}
+     
+     /* 底部切换按钮样式 */
+     ul {display: -webkit-box; display: -webkit-flex; display: flex; }
+     #footer {height: 51px; /*line-height: 50px;*/ background-color: #413A36;border-top: 1px solid #332E2A; }
+     #footer li{-webkit-box-flex: 1; -webkit-flex: 1; flex:1; /*height: 40px;*/}
+
+     /* 选项卡样式 */
+     .scrollbar {display: -webkit-box;display: -webkit-flex; text-align: center; height: 40px; line-height: 40px;background: #EBECF0;font-size: 12px;position: relative;}
+     .col1 {-webkit-box-flex:1;-webkit-flex: 1;flex:1;color: #909090;}
+     .indexbar {position: absolute;/*background: #0fc;*/width: 50%;height: 5px;left: 0px;bottom: 0px;-webkit-transition: 300ms;}
+     .redbox {background: #DB4646;width: 40px;height: 5px;position: relative;left: auto;right: auto; margin-left: auto; margin-right: auto;}
+
+     /********************/
+     /* 底部按钮原始样式 */
+     /********************/
+     .bbtn01 {background: url(./image/main_index01.png) no-repeat center 4px; }
+     .bbtnyouni {background: url(./image/main_index02.png) no-repeat center 4px; }
+     .bbtn02 {background: url(./image/main_index02.png) no-repeat center 4px; }
+     .bbtn03 {background: url(./image/main_index03.png) no-repeat center 4px; }
+     .bbtn04 {background: url(./image/main_index04.png) no-repeat center 4px; }
+     .bottom_btn {width: 99%; /*height: 43px;*/padding-top: 21px;background-position-y: 4px; background-size: 24px;  font-size: 10px; color: #A5A5A5;}
+     
+     /* 底部按钮激活样式 */
+     .activebtn0 {/*background: url(./image/main_index01pressed.png) no-repeat center 4px; */}
+     .activebtn1 {/*background: url(./image/main_index02pressed.png) no-repeat center 4px; */}
+     .activebtn_good {/*background: url(./image/main_index02pressed.png) no-repeat center 4px; */}
+     .activebtn2 {/*background: url(./image/main_index03pressed.png) no-repeat center 4px; */}
+     .activebtn3 {/*background: url(./image/main_index04pressed.png) no-repeat center 4px; */}
+     .activebtn {color:#fff; background-size: 24px; background-color: #D33A31;}
+     .bottomhover {background-color: #46494B;}
+
+     /* 本地刷新图标 */
+     #localrefresh {display:none;float: right; width: 40px; padding: 5px 10px;}
+
+
+.navbar {display: -webkit-box; -webkit-box-orient: horizontal; position: relative; height: 40px; box-sizing: border-box; background: #fff; border-bottom: 1px solid #e0e0e0; }
+    .navbar-item {display: block; -webkit-box-flex: 1; width: 100%; line-height: 40px;  font-size: 16px; text-align: center;color: #000; }
+    .navbar-item-hov {background-color: rgba(254,242,228,0.7); }
+    .navbar-item-active {color: #D43C33; }
+    #navmark {position: absolute; left: 0px; bottom: 0px; -webkit-transition: 300ms; text-align: center; height: 2px;background-color: #D43C33;}
+
+
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <!-- 附近头部 -->
+        <div id="nearHeader" class="titlebar activebar">
+            <!-- <h2>有你</h2> -->
+            <div class="egret-header topbar normalHeader">
+                <div class="egret-header-box egret-img fr" onclick="openactivity('near')"><img src="./image/scan.png" alt=""></div>
+            </div>
+
+            <nav class="navbar" id="firstHeaderIndex">
+                <a id="navbar-near-1" class="navbar-item navbar-item-active" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('near_framegroup',0);">动态</a>
+                <a id="navbar-near-2" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('near_framegroup',1);">好人</a>
+                <a id="navbar-near-3" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('near_framegroup',2);">群组</a>
+                <a id="navbar-near-4" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('near_framegroup',3);">置换</a>
+                <a id="navbar-near-5" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('near_framegroup',4);">活动</a>
+                <a id="navbar-near-6" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('near_framegroup',5);">求助</a>                                        
+                <mark id="navmark"></mark>
+            </nav>
+        </div>
+        
+       <!-- youni头部 -->
+        <div id="youniHeader" class="titlebar">
+            <div class="egret-header topbar normalHeader">
+                <div class="egret-header-box egret-img fr" onclick="openactivity('youni')"><img src="./image/add.jpg" alt=""></div>
+                <!--<div class="egret-header-box fr">
+					<div class="egret-header-title">有你</div>  
+                </div>-->
+            </div>          
+                         
+            <nav class="navbar" id="youniHeaderIndex">
+                <a id="navbar-youni-1" class="navbar-item navbar-item-active" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('youni_framegroup',0);">走失</a>
+                <a id="navbar-youni-2" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('youni_framegroup',1);">内推</a>
+                <a id="navbar-youni-3" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('youni_framegroup',2);">内购</a>
+                <a id="navbar-youni-4" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('youni_framegroup',3);">众筹</a>
+                <a id="navbar-youni-5" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('youni_framegroup',4);">教育</a>
+                <a id="navbar-youni-6" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('youni_framegroup',5);">折扣</a>
+                <mark id="navmark"></mark>
+            </nav>
+        </div>
+
+       <!-- 消息头部 -->
+        <div id="messageHeader" class="titlebar">
+            <div class="egret-header topbar normalHeader">
+                <!--<div class="egret-header-box">
+					<div class="egret-header-title">有你</div>  
+                </div>-->
+				<div class="egret-header-box egret-img fr" onclick="openactivity('message')"><img src="./image/add.jpg" alt=""></div>      
+            </div>       
+            <nav class="navbar" id="messageHeaderIndex">
+                <a id="navbar-message-1" class="navbar-item navbar-item-active" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('message_framegroup',0);">好友</a>
+                <a id="navbar-message-2" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('message_framegroup',1);">群消息</a>
+                <a id="navbar-message-3" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('message_framegroup',2);">平台消息</a>
+                <a id="navbar-message-4" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('message_framegroup',3);">动态通知</a>
+                <mark id="navmark"></mark>
+            </nav>
+        </div>
+
+		<!-- 通讯录头部 -->
+        <div id="contactsHeader" class="titlebar">
+            <div class="egret-header topbar normalHeader">
+                <!--<div class="egret-header-box">
+					<div class="egret-header-title">有你有我</div>  
+                </div>-->
+				<div class="egret-header-box egret-img fr" onclick="openactivity('contacts')"><img src="./image/add.jpg" alt=""></div>
+            </div>       
+            <nav class="navbar" id="contactsHeaderIndex">
+                <a id="navbar-contacts-1" class="navbar-item navbar-item-active" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('contact_framegroup',0);">好友</a>
+                <a id="navbar-contacts-2" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('contact_framegroup',1);">群组</a>
+                <a id="navbar-contacts-3" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('contact_framegroup',2);">粉丝</a>
+                <a id="navbar-contacts-4" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex('contact_framegroup',3);">关注</a>
+                <mark id="navmark"></mark>
+            </nav>
+        </div>
+                     
+        <!-- 我头部 -->
+        <div id="fortheader" class="titlebar">
+            <div class="egret-header topbar">
+                <div class="egret-header-title">账号</div>
+            </div>
+        </div>
+      
+      <div id="main">
+        
+      </div>
+      
+      <div id="footer">
+        <ul>
+          <li tapmode="activebtn0 activebtn" onclick="switchframe('near_framegroup')">
+            <a class="bottom_btn bbtn01 weixin activebtn activebtn0">附近</a>
+          </li>
+          
+          <li tapmode="activebtn_good activebtn" onclick="switchframe('youni_framegroup')">
+            <a class="bottom_btn bbtnyouni communicate">有你</a>
+          </li>
+          
+          <li tapmode="activebtn1 activebtn" onclick="switchframe('message_framegroup')">
+            <a class="bottom_btn bbtn02 communicate">消息</a>
+          </li>
+
+          <li tapmode="activebtn2 activebtn" onclick="switchframe('contact_framegroup')">
+            <a class="bottom_btn bbtn03 discover">通讯录</a>
+          </li>
+
+          <li tapmode="activebtn3 activebtn" onclick="switchframe('myself')">
+            <a class="bottom_btn bbtn04 home">我</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</body>
+<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript">
+var firstHeader = $api.byId('nearHeader');
+var youniHeader = $api.byId('youniHeader');
+var messageHeader = $api.byId('messageHeader');
+var contactsHeader = $api.byId('contactsHeader');
+var fortheader = $api.byId('fortheader');
+var firstHeaderOffset;
+var firstHeaderIndexHeight;
+var youniHeaderIndexHeight;
+
+var main      = $api.byId('main');
+var mainPos   = $api.offset(main);
+
+var footer    = $api.byId('footer');
+var footerPos = $api.offset(footer);
+
+var isFirstOpen = false;
+var isyouniOpen = false;
+var isMessageOpen = false;
+var isContactsOpen = false;
+var isMyselfOpen = false;
+
+function emptyopt() {}
+
+// 打开frame
+function openframe02more () {
+    api.openFrame({
+        name: 'frame02more',
+        url: './html/second_frame/frame02_more.html',
+        rect: {
+            x: 0,
+            y: firstHeaderOffset.h,
+            w: 'auto',
+            h: 'auto'
+        },
+        bounces:false,
+        delay: 200
+    });
+}
+
+function openSearch() {
+    api.openWin({
+        name: 'search',
+        url: './html/search.html',
+        bounces: false,
+        delay: 200
+    });
+}
+
+function openactivity(win_name) {
+	//win_name = api.frameName + "_win"
+	//win_url = "./html/youni/" + win_name + ".html"
+	frame_name = $api.getStorage(win_name);
+	
+	//console.log("win is  " + win_name + "url is " + win_url);
+	
+	//win_name = "lost_win"
+	win_url = "./html/youni/lost_win.html"
+	win_url = "./html/" + win_name + "/add_" + frame_name + "_win.html"
+	console.log("winName is  " + win_name + " frameName is " + frame_name + "url is " + win_url);
+	
+    api.openWin({
+        name: win_name,
+        url: win_url,
+        bounces: false,
+		vScrollBarEnabled : false,
+		hScrollBarEnabled : false
+    });
+}
+
+// 随意切换按钮
+function randomSwitchBtn(name, index) {
+    var lis = $api.domAll('.bottom_btn');
+    var i = 0,
+    len = lis.length;
+    var curLi = lis[index];
+
+    for (i; i < len; i++) {
+        var thisLi = lis[i];
+        if (thisLi === curLi) {
+            $api.addCls(thisLi, 'activebtn');
+            $api.addCls(thisLi, 'activebtn' + index);
+            continue;
+        } else {
+            if ($api.hasCls(thisLi, 'activebtn')) {
+                $api.removeCls(thisLi, 'activebtn');
+                $api.removeCls(thisLi, 'activebtn' + i);
+            }
+        }
+    }
+
+    // 切换头部
+    var lis = $api.domAll('.titlebar');
+    var i = 0,
+        len = lis.length;
+    var curLi = lis[index];
+
+    for (i; i < len; i++) {
+        var thisLi = lis[i];
+        if (thisLi === curLi) {
+            $api.addCls(thisLi, 'activebar');
+            $api.addCls(thisLi, 'activebar' + index);
+            continue;
+        } else {
+            if ($api.hasCls(thisLi, 'activebar')) {
+                $api.removeCls(thisLi, 'activebar');
+                $api.removeCls(thisLi, 'activebar' + i);
+            }
+        }
+    }
+}
+
+// 隐藏所有的一级frame
+function hideAllFrame() {
+    api.setFrameGroupAttr({
+        name: 'near_framegroup',
+        hidden: true
+    });
+
+    api.setFrameGroupAttr({
+        name: 'youni_framegroup',
+        hidden: true
+    });
+    
+    api.setFrameGroupAttr({
+        name: 'message_framegroup',
+        hidden: true
+    });
+    
+    api.setFrameGroupAttr({
+        name: 'contact_framegroup',
+        hidden: true
+    });
+    api.setFrameAttr({
+        name: 'myself',
+        hidden: true
+    });
+}
+
+// 自己修复ios显示frame的时候bug
+// ios自己主动隐藏后，再open就不显示了
+function showgroup(type) {
+    api.setFrameGroupAttr({
+        name: type ,
+        hidden: false
+    });
+}
+
+// 展示指定的frame
+function showframe(type) {
+    api.setFrameAttr({
+        name: type,
+        hidden: false
+    });
+}
+
+function setFrameGroupIndex(framegroup_name,frameIndex) {
+	//console.log("setFrameGroupIndex frame_name is " + framegroup_name + " " + frameIndex);
+	
+    api.setFrameGroupIndex({
+        name: framegroup_name,
+        index: frameIndex,
+        scroll: true
+    });
+}
+
+function setFrameGroupStatus(framegroup_name_index,navigatenum,frameIndex) {
+	//navigatenum = 6;
+	
+	navbar1 = "navbar-" + framegroup_name_index + "-1"
+	navbar2 = "navbar-" + framegroup_name_index + "-2"
+	navbar3 = "navbar-" + framegroup_name_index + "-3"
+	navbar4 = "navbar-" + framegroup_name_index + "-4"
+	navbar5 = "navbar-" + framegroup_name_index + "-5"
+	navbar6 = "navbar-" + framegroup_name_index + "-6"
+	
+	var allframes = {"near": ["update","goodman","group","exchange","activity","help"],
+				"youni": ["lost","neitui","neigou","zhongchou","jiaoyu","zhekou"],
+				"message": ["friends","groups","platform","activiy_notify"],
+				"contacts": ["friends","groups","followers","followees"]};
+	cur_win = allframes[framegroup_name_index];
+	if(cur_win){
+		$api.setStorage(framegroup_name_index,cur_win[frameIndex]);
+		console.log(framegroup_name_index + "frame " + cur_win[frameIndex]);
+	}
+	
+    switch (frameIndex) {
+        case 0:
+            {
+                $api.byId(navbar1).className = "navbar-item navbar-item-active";
+                $api.byId(navbar2).className = "navbar-item";
+                $api.byId(navbar3).className  = "navbar-item";
+                $api.byId(navbar4).className  = "navbar-item";
+                
+                if(navigatenum > 4)
+                {
+                	$api.byId(navbar5).className  = "navbar-item";
+                	$api.byId(navbar6).className  = "navbar-item";
+                }
+                var num = (api.winWidth / navigatenum) * frameIndex;
+                $api.css($api.byId('navmark'), "-webkit-transform:translate(" + num + "px,0)");
+                break;
+            }
+        case 1:
+            {
+                $api.byId(navbar1).className = "navbar-item";
+                $api.byId(navbar2).className = "navbar-item navbar-item-active";
+                $api.byId(navbar3).className  = "navbar-item";
+                $api.byId(navbar4).className  = "navbar-item";
+                
+                if(navigatenum > 4)
+                {
+                	$api.byId(navbar5).className  = "navbar-item";
+                	$api.byId(navbar6).className  = "navbar-item";
+                }
+                var num = (api.winWidth / navigatenum) * frameIndex;
+                $api.css($api.byId('navmark'), "-webkit-transform:translate(" + num + "px,0)");
+                
+                //jincm add log 
+                console.log("winName is  " + api.winName + " frameName is  " + api.frameName);
+                break;
+            }
+        case 2:
+            {
+                $api.byId(navbar1).className = "navbar-item";
+                $api.byId(navbar2).className  = "navbar-item";
+                $api.byId(navbar3).className  = "navbar-item navbar-item-active";
+                $api.byId(navbar4).className  = "navbar-item";
+                if(navigatenum > 4)
+                {
+                	$api.byId(navbar5).className  = "navbar-item";
+                	$api.byId(navbar6).className  = "navbar-item";
+                }
+                var num = (api.winWidth / navigatenum) * frameIndex;
+                $api.css($api.byId('navmark'), "-webkit-transform:translate(" + num + "px,0)");
+                break;
+            }
+        case 3:
+            {
+                $api.byId(navbar1).className = "navbar-item";
+                $api.byId(navbar2).className  = "navbar-item";
+                $api.byId(navbar3).className  = "navbar-item";
+                $api.byId(navbar4).className  = "navbar-item navbar-item-active";
+                
+                if(navigatenum > 4)
+                {
+                	$api.byId(navbar5).className  = "navbar-item";
+                	$api.byId(navbar6).className  = "navbar-item";
+                }
+                var num = (api.winWidth / navigatenum) * frameIndex;
+                $api.css($api.byId('navmark'), "-webkit-transform:translate(" + num + "px,0)");
+                break;
+            }
+        case 4:
+        {
+            $api.byId(navbar1).className = "navbar-item";
+            $api.byId(navbar2).className  = "navbar-item";
+            $api.byId(navbar3).className  = "navbar-item";
+            $api.byId(navbar4).className  = "navbar-item";
+                
+            if(navigatenum > 4)
+            {
+            	$api.byId(navbar5).className  = "navbar-item navbar-item-active";
+            	$api.byId(navbar6).className  = "navbar-item";
+            }
+            var num = (api.winWidth / navigatenum) * frameIndex;
+            $api.css($api.byId('navmark'), "-webkit-transform:translate(" + num + "px,0)");
+            break;
+        }
+        case 5:
+        {
+            $api.byId(navbar1).className = "navbar-item";
+            $api.byId(navbar2).className  = "navbar-item";
+            $api.byId(navbar3).className  = "navbar-item";
+            $api.byId(navbar4).className  = "navbar-item";
+            if(navigatenum > 4)
+            {
+            	$api.byId(navbar5).className  = "navbar-item";
+            	$api.byId(navbar6).className  = "navbar-item navbar-item-active";
+            }
+
+            var num = (api.winWidth / navigatenum) * frameIndex;
+            $api.css($api.byId('navmark'), "-webkit-transform:translate(" + num + "px,0)");
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+// 打开第一个framegroup
+function openNearFramegroup() {
+    api.openFrameGroup({
+        name: 'near_framegroup',
+        background: '#FFF',
+        scrollEnabled: true,
+        rect: {
+            x: 0,
+            y: firstHeaderOffset.h + firstHeaderIndexHeight,
+            w: "auto",
+            h: api.frameHeight - firstHeaderOffset.h - firstHeaderIndexHeight - footerPos.h
+        },
+        index: 0,
+        frames: [{
+            name: 'near_update',
+            url: './html/near/near_update.html',
+            bounces: false,
+        }, {
+            name: 'near_goodman',
+            url: './html/near/near_goodman.html',
+            bounces: false,
+        }, {
+            name: 'near_group',
+            url: './html/near/near_group.html',
+            bounces: false,
+        }, {
+            name: 'near_exchange',
+            url: './html/near/near_exchange.html',
+            bounces: false,
+        }, {
+            name: 'near_activity',
+            url: './html/near/near_activity.html',
+            bounces: false,
+        }, {
+            name: 'near_help',
+            url: './html/near/near_help.html',
+            bounces: false,
+        }]
+    }, function(ret) {
+        setFrameGroupStatus("near",6,ret.index);
+        //$api.setStorage(framegroup_name_index, ");
+        
+    });
+}
+
+
+// 打开 youniframegroup
+function openyouniFramegroup() {
+    api.openFrameGroup({
+        name: 'youni_framegroup',
+        background: '#FFF',
+        scrollEnabled: true,
+        rect: {
+            x: 0,
+            y: firstHeaderOffset.h + firstHeaderIndexHeight,
+            w: "auto",
+            h: api.frameHeight - firstHeaderOffset.h - firstHeaderIndexHeight - footerPos.h
+        },
+        index: 0,
+        frames: [{
+            name: 'youni_lost',
+            url: './html/youni/youni_lost.html',
+            bounces: false,
+        }, {
+            name: 'youni_neitui',
+            url: './html/youni/youni_neitui.html',
+            bounces: false,
+        }, {
+            name: 'youni_neigou',
+            url: './html/youni/youni_neigou.html',
+            bounces: false,
+        }, {
+            name: 'youni_zhongchou',
+            url: './html/youni/youni_zhongchou.html',
+            bounces: false,
+        }, {
+            name: 'youni_jiaoyu',
+            url: './html/youni/youni_jiaoyu.html',
+            bounces: false,
+        }, {
+            name: 'youni_zhekou',
+            url: './html/youni/youni_zhekou.html',
+            bounces: false,
+        }]
+    }, function(ret) {
+        setFrameGroupStatus('youni',6,ret.index);
+    });
+}
+
+// 打开messageframegroup
+function openMessageFramegroup() {
+    api.openFrameGroup({
+        name: 'message_framegroup',
+        background: '#FFF',
+        scrollEnabled: true,
+        rect: {
+            x: 0,
+            y: firstHeaderOffset.h + firstHeaderIndexHeight,
+            w: "auto",
+            h: api.frameHeight - firstHeaderOffset.h - firstHeaderIndexHeight - footerPos.h
+        },
+        index: 0,
+        frames: [{
+            name: 'message_friends',
+            url: './html/message/message_friends.html',
+            bounces: false,
+        }, {
+            name: 'message_groups',
+            url: './html/message/message_groups.html',
+            bounces: false,
+        }, {
+            name: 'message_platform',
+            url: './html/message/message_platform.html',
+            bounces: false,
+        }, {
+            name: 'message_activity_notify',
+            url: './html/message/message_activity_notify.html',
+            bounces: false,
+        }]
+    }, function(ret) {
+        setFrameGroupStatus('message',4,ret.index);
+    });
+}
+
+// 打开contactsframegroup
+function openContactsFramegroup() {
+    api.openFrameGroup({
+        name: 'contact_framegroup',
+        background: '#FFF',
+        scrollEnabled: true,
+        rect: {
+            x: 0,
+            y: firstHeaderOffset.h + firstHeaderIndexHeight,
+            w: "auto",
+            h: api.frameHeight - firstHeaderOffset.h - firstHeaderIndexHeight - footerPos.h
+        },
+        index: 0,
+        frames: [{
+            name: 'contact_friends',
+            url: './html/contacts/contact_friends.html',
+            bounces: false,
+        }, {
+            name: 'contact_groups',
+            url: './html/contacts/contact_groups.html',
+            bounces: false,
+        }, {
+            name: 'contact_followers',
+            url: './html/contacts/contact_followers.html',
+            bounces: false,
+        }, {
+            name: 'contact_followees',
+            url: './html/contacts/contact_followees.html',
+            bounces: false,
+        }]
+    }, function(ret) {
+        setFrameGroupStatus('contacts',4,ret.index);
+    });
+}
+
+// 打开frame
+function openframeinstance(frame, marginTop, isBounce) {
+    api.openFrame({
+        name: frame,
+        url: './html/' + frame + '/' + frame + '_body.html',
+        rect: {
+            x: 0,
+            y: marginTop,
+            w: 'auto',
+            h: api.frameHeight - marginTop - footerPos.h
+        },
+        // pageParam: {name: marginTop + footerPos.h},
+        bounces: false,
+        vScrollBarEnabled: false,
+        hScrollBarEnabled: false,
+        delay: 200
+    });
+}
+
+// 移动滑动块
+function sliderbarCallback(id, num) {
+    // 得到背景元素的宽度
+    // var width=parseInt(window.getComputedStyle($api.byId('matchwidth'),null).width);
+    var width = parseInt(api.frameWidth / 2);
+    // api.alert({msg:width});
+    if (num != 0) {
+        num = width;
+    }
+    console.log("id = " + id + "num = " + num + "width = " + width);
+    // 移动背景元素的宽度  在index.html不能获得 forth_frame.html上面的dom，虽然是在同一个手机屏幕上
+    $api.css($api.byId(id), "-webkit-transform:translate(" + num + "px,0)");
+}
+
+// ===================================
+// 响应底部按钮的切换frame
+// ===================================
+function switchframe(type) {
+    //alert(firstHeaderOffset.h);
+	console.log("type is " + type);
+	
+    switch (type) {
+        case 'near_framegroup':
+            randomSwitchBtn('near_framegroup', 0);
+            hideAllFrame();
+            if (isFirstOpen) {
+                showgroup('near_framegroup');
+            }
+            else {
+                openNearFramegroup();
+                isFirstOpen = true;
+            }
+            console.log("winName is  " + api.winName + " frameName is  " + api.frameName);
+            
+            break;
+        case 'youni_framegroup':
+            randomSwitchBtn('youni_framegroup', 1);
+            hideAllFrame();
+            if (isyouniOpen) {
+            	//console.log("youni_framegroup show");
+                showgroup('youni_framegroup');
+            }
+            else {
+                openyouniFramegroup();
+                isyouniOpen = true;
+            }
+            
+            // openframeinstance('third_frame', firstHeaderOffset.h, false);
+            // openLeftgroup();
+            // showframe('third_frame');
+            break;
+            
+        case 'message_framegroup':
+            randomSwitchBtn('message_framegroup', 2);
+            hideAllFrame();
+            if (isMessageOpen) {
+            	//console.log("message_framegroup show");
+                showgroup('message_framegroup');
+            }
+            else {
+                openMessageFramegroup();
+                isMessageOpen = true;
+            }
+            // showgroup('hot');
+            break;
+
+            
+        case 'contact_framegroup':
+            randomSwitchBtn('contact_framegroup', 3);
+            hideAllFrame();
+            if (isContactsOpen) {
+            	//console.log("contact_framegroup show");
+                showgroup('contact_framegroup');
+            }
+            else {
+                openContactsFramegroup();
+                isContactsOpen = true;
+            }
+            
+            // openframeinstance('third_frame', firstHeaderOffset.h, false);
+            // openLeftgroup();
+            // showframe('third_frame');
+            break;
+        case 'myself':
+            randomSwitchBtn('myself', 4);
+            hideAllFrame();
+            if (isMyselfOpen) {
+                showframe('myself');
+            }
+            else {
+                openframeinstance('myself', firstHeaderOffset.h, false);
+                isMyselfOpen = true;
+            }
+           
+            break;
+        default:
+            break;
+    }
+
+}
+
+// 完成首页初始化
+apiready = function() {
+    // 设置ios7的标题栏字体变亮，全局用一个就行了
+    api.setStatusBarStyle({
+        style: 'dark'
+    });
+
+    firstHeader = $api.byId('nearHeader');
+    youniHeader = $api.byId('youniHeader');
+    messageHeader = $api.byId('messageHeader');
+    contactsHeader = $api.byId('contactsHeader');
+    fortheader = $api.byId('fortheader');
+
+    var fortheader = $api.byId('fortheader');
+    var firstHeaderIndex = $api.byId('firstHeaderIndex');
+
+    $api.fixIos7Bar(firstHeader);
+    $api.fixIos7Bar(youniHeader);
+    $api.fixIos7Bar(messageHeader);
+    $api.fixIos7Bar(contactsHeader);
+    $api.fixIos7Bar(fortheader);
+
+    // TODO 一定记得修改
+    firstHeaderOffset = $api.offset(firstHeader);
+    firstHeaderIndexHeight = $api.offset(firstHeaderIndex).h;
+
+    firstHeaderOffset.h -= firstHeaderIndexHeight;
+
+    var main = $api.byId('main');
+    var mainPos = $api.offset(main);
+
+    var footer = $api.byId('footer');
+    var footerPos = $api.offset(footer);
+
+    var scrollHeight = $api.dom('.navbar').offsetHeight;
+    $api.byId('navmark').style.width = api.winWidth / 5 + 'px';
+    isFirstOpen = true;
+    openNearFramegroup();
+    
+    //jincm test
+    key = "key1"
+    data = "data1"
+    $api.setStorage(key, data);
+    console.log("key=" + key + " data=" + data)
+
+};
+</script>
+</html>

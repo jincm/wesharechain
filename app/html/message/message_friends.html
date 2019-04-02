@@ -1,0 +1,499 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="copyright" content="www.apicloud.com" />
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+<title>好友消息</title>
+<link rel="stylesheet" type="text/css" href="../../css/app_common.css" />
+<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+<link rel="stylesheet" type="text/css" href="../../css/idangerous.swiper.css">
+<style type="text/css">
+	.unread {
+		display: inline-block;
+		background: #15b5e9;
+		color: #fff;
+		font-size: 10px;
+		padding: 0 3px;
+		border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+</style>
+</head>
+
+<body>
+
+
+<!--D:\srccode\zuohaoshi\client\demo\wangyimusic20141207\html\third_frame\frame0301.html-->
+
+<div class="sectionTitle mt20" id="data_div"></div>
+
+<script id="mytpl" type="text/x-dot-template">
+{{ if(it && it.length > 0){ }}
+	{{ for(var i=0;i<it.length;i++){ }}	
+
+		<div class="egret-flex-item"  tapmode="fmbtnhover" onclick="openMessageDetail('{{=it[i].id}}','{{=it[i].name}}')">
+			<div class="egret-flex-item-logo">
+				<img src="../../image/test/frame0103cover07.jpg" alt="" class="">
+			</div>
+			<div class="egret-flex-item-shelf">
+				{{ if(it[i].name){ }}
+				<div class="egret-flex-item-shelf01">{{=it[i].id}} phone:{{=it[i].name}}</div>
+				{{ }else{ }}
+				<div class="egret-flex-item-shelf01">无名</div>
+				{{ } }}
+				
+				{{ if(it[i].content){ }}
+				<div class="egret-flex-item-shelf02"><span class="egret-flex-item-redclassify">好人</span>{{=it[i].content}}</div>
+				{{ }else{ }}
+				<div class="egret-flex-item-shelf02"><span class="egret-flex-item-redclassify">好人</span>抬头看天，低头看地，平头看人！</div>
+				{{ } }}
+			</div>
+		</div>
+		
+	{{ } }}
+	
+{{ }else{ }}
+	<li>没有数据</li>
+{{ } }}
+</script>
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/idangerous.swiper.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../../script/app.js"></script>
+<script type="text/javascript" src="../../script/socket.io.js"></script>
+<!--<script type="text/javascript" src="widget://script/socket.io.js"></script> -->
+
+<script type="text/javascript" charset="utf-8">
+</script>
+
+<script type="text/javascript">
+
+isFirst = false;
+	
+function openMessageDetail(user_id, user_name) {
+	// 获取目标ID
+	var targetId = user_id; //$(this).attr("data-targetId");
+	// 获取目标名称
+	var targetName = user_name; //$(this).attr("data-targetName");
+	
+	// 清除未读数
+	//rong_clearMessagesUnreadStatus(conversationType, targetId);
+	// 打开会话页面
+    api.openWin({
+        name: "chat_win",
+        url: "chat_win.html",
+        pageParam: {conversationType: "chat", targetId : targetId, targetName : targetName}
+    });
+    
+    console.log("open message detail:" + user_id + " name: " + user_name);
+	//alert("应该跳转到Message页面  id " + user_id);
+	
+	/*
+	var socket = new WebSocket('ws://123.56.159.76:3000');
+	socket.onopen = function(event){
+		socket.send('I am the client and I\'m listening!');
+		alert("websocket is good");
+	}
+	socket.onmessage = function(event){
+		console.log('Client received a message',event);
+	}
+	socket.onclose = function(event){
+		console.log('Client notified socket has closed',event);
+	}
+	//socket.close()
+	console.log("websocket is " + socket);*/
+
+	
+	//alert("websocket is good2");
+	
+	/*winName = grouptype + "_" + type + "_detail"
+	winUrl = winName + "_win.html"
+    api.openWin({
+        name: winName,
+        url: winUrl,
+        pageParam: {dataId: did}
+    });*/
+}
+
+var headerPos;
+
+window.onload = function() {
+}
+
+// 初始化并连接监听
+function websocket_init() {
+	user_id = $api.getStorage("user_id");
+	
+	this.socket = io.connect('ws://123.56.159.76:3000');
+	this.socket.emit('login', {userid:user_id, username:'jincm111'});
+	
+	
+	//连接后，server会将对应的信息立即发送过来
+	this.socket.on("msg_server", function(msg, fn) {
+		fn('rcv_ok');
+		//io.emit('rcv_ok', { my: 'data' });
+		console.log(JSON.stringify(msg));
+		// 4.1 广播接收到消息了(消息可能包含多条？)
+		_sendEvent("receivedMsg", msg);
+		// 判断是否首次获取，避免重复插入
+		if (!isFirst) {
+			// 发送者ID
+			var senderUserId = msg.senderUserId;
+			// 判断是否是单聊
+			if (msg.conversationType == "PRIVATE") {
+				senderUserId = msg.senderUserId;
+			}
+			// 判断是否是群聊
+			else if (msg.conversationType == "GROUP") {
+				senderUserId = msg.targetId;
+			}
+			//将新的消息数据保存到本地，然后每个消息页面重新加载即可；
+			//save msgs 
+			//showMsgList();
+		}
+		if (!isFirst) {
+			// 状态栏提醒
+			api.notification({
+				vibrate : [300, 500],
+				sound : 'default',
+				light : false,
+				notify : {
+					title : '您有新消息',
+					content : msg.content != undefined ? msg.content : "",
+					updateCurrent : false,
+					extra : JSON.stringify(msg)
+				}
+			}, function(ret, err) {
+			});
+		}		
+	});
+	
+	/*this.socket.on('send_ok', function(data) {
+		console.log("msg send " + data);
+		// 广播消息，发送成功
+		_sendEvent("sendMsgSuccess", data);		
+	});*/
+	
+	this.socket.on('disconnect', function () {
+    	//io.emit('user disconnected');
+  	});
+}
+
+/*
+// 退出登录
+function websocket_logout(ret) {
+	websocket_disconnect();
+}
+// 断开连接
+function websocket_disconnect() {
+	websocket.disconnect(false);
+}*/
+
+// 统一发送消息接口
+// @msgType：消息类型，文字，图片，语言，地图，天气
+// @conversationType：会话类型，单聊（PRIVATE），讨论组（DISCUSSION），群组（GROUP），聊天室（CHATROOM），客服（CUSTOMER_SERVICE），（SYSTEM）
+// @targetId：接受方ID，可以是用户 Id、讨论组 Id、群组 Id 或聊天室 Id
+// @content：发送内容
+// @extra：用户自定义数据,一般extra是用户+token组装的json字符串
+//function websocket_sendMsg(msgType, conversationType, senderId, targetId, content, extra)
+function websocket_sendMsg(msg) {
+	switch(msg.msgType) {
+		// 发送文字消息(目前仅支持文字，图片声音视频后续支持）
+		case "TxtMsg":
+			// 存储当前发送信息到本地
+			//$api.setStorage((ret.result.message.messageId).toString(), ret);
+			// 广播消息，发送准备中			
+			//extra = JSON.stringify({'username':'jincm','bb':'cc'});
+			
+			//var msg = {'content':{'text':content,'extra':extra}, 'objectName':"RC:TxtMsg","messageId":targetId};
+			msg.msgId = _uuid();
+			
+			console.log("msg is :" + JSON.stringify(msg));
+			
+			//var sendmsg = {'value':msg};
+			_sendEvent("sendMsgPrepare", msg);
+			this.socket.emit("msg_client", msg , function (result) {
+				console.log("msg client result is " + result);
+				// 广播消息，发送成功
+				_sendEvent("sendMsgSuccess", msg);	
+			});
+
+			
+			// 设置发送会话
+			//sendMsgSuccessEnd($api.getStorage((ret.result.message.messageId).toString()));
+					
+			/*websocket.sendTextMessage({
+				conversationType : conversationType,
+				targetId : targetId,
+				text : content,
+				extra : extra
+			}, function(ret, err) {
+				if (ret.status == 'prepare') {
+					// 存储当前发送信息
+					$api.setStorage((ret.result.message.messageId).toString(), ret);
+					// 广播消息，发送准备中
+					_sendEvent("sendMsgPrepare", ret.result.message);
+				} else if (ret.status == 'success') {
+					// 广播消息，发送成功
+					_sendEvent("sendMsgSuccess", ret.result.message);
+					// 设置发送会话
+					sendMsgSuccessEnd($api.getStorage((ret.result.message.messageId).toString()));
+				} else if (ret.status == 'error') {
+					// 广播消息，发送失败
+					_sendEvent("sendMsgError", {
+						errcode : err.code,
+						messageId : ret.result.message.messageId
+					});
+				}
+			});*/
+			break;
+		// 发送语音
+		case "VcMsg":
+			websocket.sendVoiceMessage({
+				conversationType : conversationType,
+				targetId : targetId,
+				voicePath : content,
+				duration : $api.strToJson(extra).duration,
+				extra : extra
+			}, function(ret, err) {
+				if (ret.status == 'prepare') {
+					// 存储当前发送信息
+					$api.setStorage((ret.result.message.messageId).toString(), ret);
+					// 广播消息，发送准备中
+					_sendEvent("sendMsgPrepare", ret.result.message);
+				} else if (ret.status == 'success') {
+					// 广播消息，发送成功
+					_sendEvent("sendMsgSuccess", ret.result.message);
+					// 设置发送会话
+					sendMsgSuccessEnd($api.getStorage((ret.result.message.messageId).toString()));
+				} else if (ret.status == 'error') {
+					// 广播消息，发送失败
+					_sendEvent("sendMsgError", {
+						errcode : err.code,
+						messageId : ret.result.message.messageId
+					});
+				}
+			});
+			break;
+		// 发送图片
+		case "ImgMsg":
+			websocket.sendImageMessage({
+				conversationType : conversationType,
+				targetId : targetId,
+				imagePath : content,
+				extra : extra
+			}, function(ret, err) {
+				if (ret.status == 'prepare') {
+					// 存储当前发送信息
+					$api.setStorage((ret.result.message.messageId).toString(), ret);
+					// 广播消息，发送准备中
+					_sendEvent("sendMsgPrepare", ret.result.message);
+				} else if (ret.status == 'progress') {
+					// 广播消息，发送过程中
+					_sendEvent("sendMsgProgress", ret.result.progress);
+				} else if (ret.status == 'success') {
+					// 广播消息，发送成功
+					_sendEvent("sendMsgSuccess", ret.result.message);
+					// 设置发送会话
+					sendMsgSuccessEnd($api.getStorage((ret.result.message.messageId).toString()));
+				} else if (ret.status == 'error') {
+					// 广播消息，发送失败
+					_sendEvent("sendMsgError", {
+						errcode : err.code,
+						messageId : ret.result.message.messageId
+					});
+				}
+			});
+			break;
+		// 发送图文
+		case "richmsg":
+			websocket.sendRichContentMessage({
+				conversationType : conversationType,
+				targetId : targetId,
+				title : $api.strToJson(extra).title,
+				description : $api.strToJson(extra).description,
+				imageUrl : content,
+				extra : extra
+			}, function(ret, err) {
+				if (ret.status == 'prepare') {
+					// 存储当前发送信息
+					$api.setStorage((ret.result.message.messageId).toString(), ret);
+					// 广播消息，发送准备中
+					_sendEvent("sendMsgPrepare", ret.result.message);
+				} else if (ret.status == 'success') {
+					// 广播消息，发送成功
+					_sendEvent("sendMsgSuccess", ret.result.message);
+					// 设置发送会话
+					sendMsgSuccessEnd($api.getStorage((ret.result.message.messageId).toString()));
+				} else if (ret.status == 'error') {
+					// 广播消息，发送失败
+					_sendEvent("sendMsgError", {
+						errcode : err.code,
+						messageId : ret.result.message.messageId
+					});
+				}
+			});
+			break;
+		// 发送位置信息
+		case "location":
+			websocket.sendLocationMessage({
+				conversationType : conversationType,
+				targetId : targetId,
+				latitude : $api.strToJson(extra).lat,
+				longitude : $api.strToJson(extra).lon,
+				poi : $api.strToJson(extra).poi,
+				imagePath : content,
+				extra : extra
+			}, function(ret, err) {
+				if (ret.status == 'prepare') {
+					// 存储当前发送信息
+					$api.setStorage((ret.result.message.messageId).toString(), ret);
+					// 广播消息，发送准备中
+					_sendEvent("sendMsgPrepare", ret.result.message);
+				} else if (ret.status == 'progress') {
+					// 广播消息，发送过程中
+					_sendEvent("sendMsgProgress", ret.result.progress);
+				} else if (ret.status == 'success') {
+					// 广播消息，发送成功
+					_sendEvent("sendMsgSuccess", ret.result.message);
+					// 设置发送会话
+					sendMsgSuccessEnd($api.getStorage((ret.result.message.messageId).toString()));
+				} else if (ret.status == 'error') {
+					// 广播消息，发送失败
+					_sendEvent("sendMsgError", {
+						errcode : err.code,
+						messageId : ret.result.message.messageId
+					});
+				}
+			});
+			break;
+		// 发送命令消息（自定义消息)
+		case "cmd":
+			websocket.sendCommandNotificationMessage({
+				conversationType : conversationType,
+				targetId : targetId,
+				name : $api.strToJson(extra).name,
+				data : extra
+			}, function(ret, err) {
+				if (ret.status == 'prepare') {
+					// 存储当前发送信息
+					$api.setStorage((ret.result.message.messageId).toString(), ret);
+					// 广播消息，发送准备中
+					_sendEvent("sendMsgPrepare", ret.result.message);
+				} else if (ret.status == 'success') {
+					// 广播消息，发送成功
+					_sendEvent("sendMsgSuccess", ret.result.message);
+					// 设置发送会话
+					sendMsgSuccessEnd($api.getStorage((ret.result.message.messageId).toString()));
+				} else if (ret.status == 'error') {
+					// 广播消息，发送失败
+					_sendEvent("sendMsgError", {
+						errcode : err.code,
+						messageId : ret.result.message.messageId
+					});
+				}
+			});
+			break;
+		default:
+			break;
+	}
+}
+		
+// 获取会话列表
+function websocket_getConversationList(ret) {
+	showMsgList();
+}
+
+apiready = function  () {
+	console.log("come setFrameGroupIndex:win name:" + api.winName + " framename:" + api.frameName);
+	user_id = $api.getStorage("user_id");
+	
+	//获取数据
+	function showMsgList(){
+		isFirst = false;
+		//get message
+		//get token and userid,if token is null,redirect to login
+		
+		//token = $api.getStorage("token");
+		url = "/u/" + "/users/search?loc_x=116&loc_y=40"
+		myajax(url,'GET','', function(ret,err){
+			console.log("ret body = " + JSON.stringify(ret.body));
+			//alert(JSON.stringify(ret.body));
+		
+			if(ret){
+				console.log(JSON.stringify(ret.body))
+				//get data from server								
+				var obj = new Array();
+				
+				for(var i = 0; i < ret.body.users.length; i++) {
+					console.log(ret.body.users[i]._id);
+					console.log(ret.body.users[i].account);
+					obj.push({"id":ret.body.users[i]._id,"name":ret.body.users[i].account,"content":ret.body.users[i].account});
+				}
+				/*obj = [ {"id":"123451","name":"user1","content":"user1 is a good man"},
+								{"id":"123452","name":"user2","content":"user2 is a good man"},
+								{"id":"123453","name":"user3","content":"user3 is a good man"},
+								{"id":"123454","name":"user4","content":"user4 is a good man"},
+								{"id":"123455","name":"user5","content":"user5 is a good man"},
+								{"id":"123456","name":"user6","content":"user6 is a good man"},
+								{"id":"123457","name":"user7","content":"user7 is a good man"},
+								{"id":"123458","name":"user8","content":"user8 is a good man"},
+								{"id":"123459","name":"user9","content":"user9 is a good man"},
+								{"id":"123460","name":"user10","content":"user10 is a good man"},
+								{"id":"123461","name":"user11","content":"user11 is a good man"},
+								{"id":"123462","name":"user12","content":"user12 is a good man"} ];*/
+			
+			    var data_div = $api.byId('data_div');
+			    var tpl = $api.byId('mytpl').text;
+			    var tempFn = doT.template(tpl);
+			    data_div.innerHTML = tempFn(obj);
+		    }else {
+		    	api.alert({
+		        	msg:('错误码：'+err.code+'；错误信息：'+err.msg+'网络状态码：'+err.statusCode)
+		    	});
+		    }
+		});
+	}
+	
+	// 结合下拉刷新
+	api.setRefreshHeaderInfo({
+	        visible: true,
+	        loadingImg: 'widget://image/near/refresh.png',
+	        bgColor: '#ccc',
+	        textColor: '#fff',
+	        textDown: '下拉刷新...',
+	        textUp: '松开刷新...',
+	        showTime: true
+	}, function(ret, err){
+	        showMsgList(); // 第一次加载
+	        api.refreshHeaderLoadDone();
+	});
+
+	// 8.0 初始化并连接
+	websocket_init();
+	// 19、自动下拉加载	
+	// 默认第一次打开页面就下拉加载数据
+	api.refreshHeaderLoading();
+
+	// 15 获取用户信息
+	userJson = user_id; //$api.getStorage("user_id");
+	// 9.0 监听是否需要发送消息
+	_addEventListener("sendMsgStart", function(ret) {
+		if (ret && ret.value) {
+			var msg = ret.value;
+			// 调用统一接口发送信息
+			console.log("sendMsgStart 2............");
+			websocket_sendMsg(msg);
+		}
+	});
+	
+	// 监听是否退出登录
+	_addEventListener("logOut", function(ret) {
+		websocket_logout();
+	});
+			
+}
+</script>
+</html>

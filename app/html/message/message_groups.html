@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="copyright" content="www.apicloud.com" />
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+<title>好友消息</title>
+<link rel="stylesheet" type="text/css" href="../../css/app_common.css" />
+<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+<link rel="stylesheet" type="text/css" href="../../css/idangerous.swiper.css">
+
+</head>
+
+<body>
+
+
+<!--D:\srccode\zuohaoshi\client\demo\wangyimusic20141207\html\third_frame\frame0301.html-->
+
+<div class="sectionTitle mt20" id="data_div"></div>
+
+<script id="mytpl" type="text/x-dot-template">
+{{ if(it && it.length > 0){ }}
+	{{ for(var i=0;i<it.length;i++){ }}	
+
+		<div class="egret-flex-item"  tapmode="fmbtnhover" onclick="openMessageDetail('{{=it[i].user_id}}')">
+			<div class="egret-flex-item-logo">
+				<img src="../../image/test/frame0103cover07.jpg" alt="" class="">
+			</div>
+			<div class="egret-flex-item-shelf">
+				{{ if(it[i].user_name){ }}
+				<div class="egret-flex-item-shelf01">{{=it[i].user_name}}</div>
+				{{ }else{ }}
+				<div class="egret-flex-item-shelf01">无名</div>
+				{{ } }}
+				
+				{{ if(it[i].content){ }}
+				<div class="egret-flex-item-shelf02"><span class="egret-flex-item-redclassify">好人</span>{{=it[i].content}}</div>
+				{{ }else{ }}
+				<div class="egret-flex-item-shelf02"><span class="egret-flex-item-redclassify">好人</span>抬头看天，低头看地，平头看人！</div>
+				{{ } }}
+			</div>
+		</div>
+		
+	{{ } }}
+	
+{{ }else{ }}
+	<li>没有数据</li>
+{{ } }}
+</script>
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/idangerous.swiper.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../../script/app.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+	
+</script>
+
+<script type="text/javascript">
+
+function openMessageDetail(user_id) {
+	
+	alert("应该跳转到Message页面  id " + user_id);
+	
+	/*winName = grouptype + "_" + type + "_detail"
+	winUrl = winName + "_win.html"
+    api.openWin({
+        name: winName,
+        url: winUrl,
+        pageParam: {dataId: did}
+    });*/
+}
+
+var headerPos;
+
+window.onload = function() {
+}
+
+apiready = function  () {
+	console.log("come setFrameGroupIndex:win name:" + api.winName + " framename:" + api.frameName);
+
+	//获取数据
+	function loadData(){
+		//get message
+		//get token and userid,if token is null,redirect to login
+		user_id = $api.getStorage("user_id");
+		//token = $api.getStorage("token");
+		url = "/u/" + "/users/search?loc_x=116&loc_y=40"
+		myajax(url,'GET','', function(ret,err){
+			console.log("ret body = " + JSON.stringify(ret.body));
+			//alert(JSON.stringify(ret.body));
+		
+			if(ret){
+				console.log(JSON.stringify(ret.body))
+				/*api.alert({
+		            title: '获取成功',
+		            msg: ret.body,
+		            buttons: ['确定']
+		        }, function (ret, err) {
+		            if (ret.buttonIndex == 1) {
+		                api.closeWin();
+		            }
+		        });*/
+				var obj = [ {"user_id":"123451","user_name":"group1","content":"this is message 11"},
+							{"user_id":"123452","user_name":"group2","content":"this is message 12"},
+							{"user_id":"123453","user_name":"group3","content":"this is message 13"},
+							{"user_id":"123454","user_name":"group4","content":"this is message 14"},
+							{"user_id":"123455","user_name":"group5","content":"this is message 15"},
+							{"user_id":"123456","user_name":"group6","content":"this is message 16"},
+							{"user_id":"123457","user_name":"group7","content":"this is message 17"},
+							{"user_id":"123458","user_name":"group8","content":"this is message 18"},
+							{"user_id":"123459","user_name":"group9","content":"this is message 19"}];
+			
+			    var data_div = $api.byId('data_div');
+			    var tpl = $api.byId('mytpl').text;
+			    var tempFn = doT.template(tpl);
+			    data_div.innerHTML = tempFn(obj);
+		    }else {
+		    	api.alert({
+		        	msg:('错误码：'+err.code+'；错误信息：'+err.msg+'网络状态码：'+err.statusCode)
+		    	});
+		    }
+		});
+	}
+	
+	// 结合下拉刷新
+	api.setRefreshHeaderInfo({
+	        visible: true,
+	        loadingImg: 'widget://image/near/refresh.png',
+	        bgColor: '#ccc',
+	        textColor: '#fff',
+	        textDown: '下拉刷新...',
+	        textUp: '松开刷新...',
+	        showTime: true
+	}, function(ret, err){
+	        loadData(); // 第一次加载
+	        api.refreshHeaderLoadDone();
+	});
+	
+	// 默认第一次打开页面就下拉加载数据
+	api.refreshHeaderLoading(); 
+
+}
+</script>
+</html>

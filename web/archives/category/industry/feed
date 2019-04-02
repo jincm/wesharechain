@@ -1,0 +1,88 @@
+
+
+
+
+
+
+              <?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>行业新闻 &#8211; WeShare链</title>
+	<atom:link href="http//www.wesharechain.net/archives/category/industry/feed" rel="self" type="application/rss+xml" />
+	<link>http//www.wesharechain.net</link>
+	<description>基于区块链技术溯源一切，促进经济协作</description>
+	<lastBuildDate>Tue, 18 Dec 2018 07:05:42 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http//wordpress.org/?v=4.8.9</generator>
+
+<image>
+	<url>http//www.wesharechain.net/wp-content/uploads/2017/12/xlogo1-03-150x150.png</url>
+	<title>行业新闻 &#8211; WeShare链</title>
+	<link>http//www.wesharechain.net</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>新华社：我国将加快区块链技术商务应用</title>
+		<link>http//www.wesharechain.net/archives/3723</link>
+		<pubDate>Thu, 23 Aug 2018 10:17:02 +0000</pubDate>
+		<dc:creator><![CDATA[jiangyao]]></dc:creator>
+				<category><![CDATA[热门推荐]]></category>
+		<category><![CDATA[行业新闻]]></category>
+
+		<guid isPermaLink="false">http//www.wesharechain.net/?p=3723</guid>
+		<description><![CDATA[据新华社北京8月21日电 记者近日从商务部国际贸易经济合作研究院获悉，我国将加快区块链技术在商务领域的应用，为发展数字商务带来新动能。 商务部国际贸易经济合作研究院和陕西省经济发展战略研究会区块链中心近日联合举办了区块链助力数字商务发展研讨会，并发布了《链接未来价值：区块链商务应用前景研究报告》。 据了解，区块链技术作为分布式数据存储、点对点传输、共识机制、加密算法等多种技术的集成应用，将推动消费互联网向价值互联网转变，推动生产、生活方式和生产关系的重大变革。 报告认为，随着社会进步，区块链技术的应用将带来新的商业规则和新的业态，扁平化大小机构的商业信息能力和成本差距，帮助企业重塑形态，改进社会结构。区块链技术带动经济和产业格局的重大调整，将是发展中国家实现跨越式发展，在国际分工中占据有利地位的重大转折机遇。 目前，我国区块链行业的技术创新正在经历一个明显加速的过程，并且在一些相关技术上处于领先地位，已经具备较好的区块链产业发展基础。]]></description>
+		</item>
+		<item>
+		<title>鲸准研究院｜区块链溯源技术蕴藏巨大商机</title>
+		<link>http//www.wesharechain.net/archives/3174</link>
+		<pubDate>Thu, 14 Jun 2018 07:42:00 +0000</pubDate>
+		<dc:creator><![CDATA[jiangyao]]></dc:creator>
+				<category><![CDATA[行业新闻]]></category>
+
+		<guid isPermaLink="false">http//www.wesharechain.net/?p=3174</guid>
+		<description><![CDATA[当前，新一轮科技革命和产业变革席卷全球，大数据、云计算、物联网、人工智能、区块链等新技术不断涌现，数字经济正深刻的改变着人类的生产和生活方式，成为了经济增长的新动能。区块链作为一项颠覆性技术，正在引领全球新一轮技术变革和产业变革。在我国，区块链产业初步形成，已开始在供应链金融、征信、数字身份、版权交易、产品溯源等多领域开展应用。其中，区块链行业溯源体系的应用，更是彰显了区块链技术的魅力。 国内，在产品溯源方面，北京溯安链科技公司处于绝对的领先地位。 北京溯安链科技有限公司COO徐立春先生表示，据2018年中国工信部区块链白皮书显示，截止到目前为止，国内区块链公司近千家，但大多数公司还是以炒币、割韭菜为主，就当下市场来说，不乏许多空气币，上述这些情况都严重损害了区块链爱好者/投资者的利益。 徐总表示，区块链的前景在于商业应用，在于溯源。溯源最根本的目的是进行商品的真伪鉴定，本质在于建立消费者对于商品品质的信任。因此，区块链溯源行业的未来趋势还是挺可观的。 “在未来的3—5年内，区块链溯源技术必将渗透到各行各业，落地应用的同时也势必会提升互联网数据的安全性。”徐总说。]]></description>
+		</item>
+		<item>
+		<title>新零售，还可以这样带你的小甜心回家家</title>
+		<link>http//www.wesharechain.net/archives/2719</link>
+		<pubDate>Tue, 13 Mar 2018 08:35:08 +0000</pubDate>
+		<dc:creator><![CDATA[徐 立春]]></dc:creator>
+				<category><![CDATA[新闻报道]]></category>
+		<category><![CDATA[行业新闻]]></category>
+
+		<guid isPermaLink="false">http//www.wesharechain.net/?p=2719</guid>
+		<description><![CDATA[&#160; 2017年下半年泛行业刮起了区块链飓风，刹那间各巨头、各行业领域、VC、媒体等等，好像不谈区块链说明你out了，哪怕是走在马路上经常无意间听到大家在谈及区块链，可谓火热至极，遥思当年的互联网之疯狂，历史总是惊人的相似。 &#160; 今天，我们就来聊一聊区块链与新零售的火花。 &#160; 互联网时代将消费场景从传统的线下搬到了线上，透过本质看问题其实是用户心理以及用户消费需求的引导以及变革。从人类心理学上看人本身具有复杂、多变、从众和追求新鲜美好事物等特性，某种程度上讲也是一种“喜新厌旧”的创新性优秀品质，可以理解为推动的行业变革和经济发展的社会力量。新零售环境的出现，零售模式风云变化，每一个新的销售运营的理念或者概念的出现，都会在各界掀起一番浪潮，各行业商家也会在新理念的推动下，进行自身的调整和升级，以适应新的形势变化。 &#160; &#160; 当然区块链的飓风也必须掠起新零售这个备受关注的领域。经常网上浏览可以看到有关区块链与新零售结合下的S2B、S2C模式，其中有一个观点：S不能仅仅提供某种SaaS化工具，它必须基于对上游供应链的整合，提供更多的技术、系统、营销等增值服务，才能帮助b更好地服务c。那么问题来了，需求如何实现呢？ &#160; 这样来讲更清晰一点，用区块链的去中心化、数据公开透明、信息不可篡改等原理嫁接产业链两端，让农产品提升价值背书，让新零售渠道获取优质农产品，这也是实现产销协和、以销带产的一种方式。 &#160; &#160; 与此同时，WeShare链溯源系统是将区块链+农业物联网+新零售进行结合。系统主要通过传感器实时监测农产品的种养、生产 [&#8230;]]]></description>
+		</item>
+		<item>
+		<title>WeShare链助力扶贫——农产品全产业链追溯，保质保效保收入</title>
+		<link>http//www.wesharechain.net/archives/2617</link>
+		<pubDate>Fri, 26 Jan 2018 09:48:02 +0000</pubDate>
+		<dc:creator><![CDATA[徐 立春]]></dc:creator>
+				<category><![CDATA[新闻报道]]></category>
+		<category><![CDATA[行业新闻]]></category>
+
+		<guid isPermaLink="false">http//www.wesharechain.net/?p=2617</guid>
+		<description><![CDATA[&#160; 目前，“三农”问题已成为大家关注的焦点，生产技术落后等问题与因素最终导致农产品产质和产量无法保障，农民收入低下。国家和各级政府一直将推动农业发展列为第一要务，给予大量政策与资源进行支持。扶贫作为此项工作的核心重点，致力于解决“三农”的各种问题，通过科学的技术与管理，改变农业整体生产力低下，提高农民收入。利用包装宣传等方式，让贫困地区的农产品得到市场广泛认知，不仅能够卖得掉，而且能够卖得多卖得好。 河北省张家口市阳原县是国家级贫困县，也是河北省10个深度贫困县之一，气候恶劣土壤贫瘠，缺少产业扶贫项目。1月20日，由中国优农协会、中国农产品市场协会和中国蔬菜协会、河北省农业厅、张家口市政府联合主办“建设科技示范大棚 助推农业产业扶贫”活动。 在此，WeShare链与工信部、农业部联合参与，共同推动阳原县扶贫工作，深入贯彻习近平总书记关于“一个主攻方向”“三个培育可持续”的重要指示精神。用信息化和科技化的手段实现绿色食品基地品牌溯源体系建设，联合农业产学研部门、农业科技公司、农资企业等共同出具产业链完整的可持续性解决方案，实现产前、产中、产后全程科学化、智能化真实、完整溯源的生产管理条件。 WeShare链利用区块链技术保证农业生产过程信息真实、可靠、不可篡改等优势的同时，将业务延伸至农产品销售，拓展建设独特的销售模式，解决贫困地区优质特色的农产品输出，既增加当地农民收入，又保证消费端人群买到放心、安全、可靠、优质的农产品。 聚合优势，共同发力；技术创新，脱贫利民。用政策推动，从技术着手，积极参与落实中央加快精准扶贫、精准脱贫工作，WeShare链计划将业务拓展至全国800多个贫困县，逐渐实现特色农 [&#8230;]]]></description>
+		</item>
+		<item>
+		<title>央行姚前首谈ICO融资:监管应做&#8221;守门人&#8221;非&#8221;清道夫&#8221;</title>
+		<link>http//www.wesharechain.net/archives/1822</link>
+		<pubDate>Mon, 10 Jul 2017 06:51:34 +0000</pubDate>
+		<dc:creator><![CDATA[徐 立春]]></dc:creator>
+				<category><![CDATA[行业新闻]]></category>
+
+		<guid isPermaLink="false">http//www.wesharechain.net/?p=1822</guid>
+		<description><![CDATA[　　今年以来，币圈的“IPO”——ICO(InitialCoinOffering，虚拟货币首次公开发售)也进行得如火如荼，这把火从海外烧到了中国。 　　不乏项目在几天内就募集到1亿元人民币，甚至有些项目仅15分钟就圆满成功，但也不乏失败或欺骗的项目。面对这一火爆的场景以及监管空白地带，各界心中始终有一个问号：监管层的态度究竟如何?未来会否出现因防范风险而对该圈子“一刀切”的情况? 　　7月6日，中国人民银行数字货币研究所所长姚前在《当代金融家》杂志上发表的题为《数字加密代币ICO及其监管研究》的文章见诸网端，他表示，“ICO项目往往处于技术孵化阶段，商业模式还未成型，加上技术的颠覆性和开创性很强，监管者难以像IPO上市审批一样，对ICO项目的前景和价值做出专业、合理的评价。可见，监管者不宜作为ICO项目好坏的审判者，最佳的角色是市场创新的‘守门人’，而不是‘清道夫’。” &#160; 　　[ICO成区块链行业重要融资机制] 　　姚前表示，目前ICO已成为区块链行业的重要融资机制，有力推动了区块链系统各层技术创新与发展。 　　ICO融得的资金往往不是法币，而是比特币、以太币或其他数字加密代币。在2014年之前，由于多数ICO项目的目标受众与比特币社区成员高度重合，比特币成为早期ICO唯一的融资代币。而随着其他区块链项目的发展与成熟，有些项目的代币价值获得认可，受众范围不断扩大，形成了自己的独立社区。社区孵化出来的项目在ICO时多会选择所在社区的代币和比特币作为双融资代币。 　　姚前举例称，如随着以太坊的发展和成熟，基于以太坊的项目ICO选择以太币和比特币作为融资资金的形式。“目前 [&#8230;]]]></description>
+		</item>
+	</channel>
+</rss>

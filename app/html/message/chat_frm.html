@@ -1,0 +1,296 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<!--AUI样式框架-->
+		<link rel="stylesheet" type="text/css" href="../../css/aui/aui.min.css" />
+		<!--拓展AUI字体图标-->
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont/iconfont.css" />
+		<!--通用样式-->
+		<link rel="stylesheet" type="text/css" href="../../css/winu-ui.css" />
+		<style type="text/css">
+			html, body {
+				background: #ade7ef;
+			}
+			.chat-sender-info {
+				font-size: 10px;
+				color: #999;
+			}
+			.nick {
+				font-size: 10px;
+				color: #666;
+			}
+			.history-date {
+				padding: 5px 0;
+			}
+			.icon-yuyin {
+				font-size: 20px !important;
+			}
+			.yuyin .icon-yuyin.red {
+				color: #f00;
+			}
+		</style>
+		<!--发送模板===============================-->
+		<script id="senderTpl" type="text/x-dot-template">
+			<div class="chat-sender-info winu-text-align-right winu-clear-both">
+			{{=_formatDate(it.sentTime)}}<label class="nick">&nbsp;&nbsp;&nbsp;{{=it.senderName}}</label>
+			</div>
+			<div class="aui-chat-sender msgcontent" data-msgid="{{=it.msgId}}">
+			<div class="aui-chat-sender-avatar"><img src="widget://image/chatBox/chatBox_face1.png">
+			</div>
+			<div class="aui-chat-sender-cont">
+			<div class="aui-chat-right-triangle"></div>
+			<div class="aui-chat-status winu-display-none"><i class="aui-iconfont aui-icon-loading aui-chat-progress"></i></div>
+			<span>{{=it.content}}</span>
+			</div>
+			</div>
+		</script>
+		<!--接收模板===============================-->
+		<script id="receiverTpl" type="text/x-dot-template">
+			<div class="chat-sender-info winu-text-align-left winu-clear-both">
+			<label class="nick">{{=it.senderName}}</label>&nbsp;&nbsp;&nbsp;{{=it.senderUserId}}
+			</div>
+			<div class="aui-chat-receiver msgcontent" data-msgid="{{=it.msgId}}">
+			<div class="aui-chat-receiver-avatar"><img src="{{=(window.uploadUrl+it.text)}}">
+			</div>
+			<div class="aui-chat-receiver-cont">
+			<div class="aui-chat-left-triangle"></div>
+			<span>{{=it.content}}</span>
+			</div>
+			</div>
+		</script>
+	</head>
+	<body>
+		<div class="aui-content aui-content-padded" id="message-content">
+			<p class="aui-text-center history-date">
+				2015-11-21 20:30:20
+			</p>
+		</div>
+	</body>
+	<!--APICloud自带前端脚本-->
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<!--Zepto.js,类似Jquery-->
+	<script type="text/javascript" src="../../script/zepto.min.js"></script>
+	<!--doT.js模板引擎-->
+	<script type="text/javascript" src="../../script/doT.min.js"></script>
+	<!--通用脚本库-->
+	<script type="text/javascript" src="../../script/app.js"></script>
+	<!--转换表情-->
+	<script type="text/javascript" src="../../script/emo.js"></script>
+	<script type="text/javascript">
+		// 图片预览模块
+		var imageBrowser = null;
+		// 设置语音空格长度
+		function setVoiceLength(duration) {
+			var beisu = Math.ceil(parseInt(duration) / 4.0);
+			var html = "";
+			for (var i = 0; i < beisu; i++) {
+				html += "&nbsp;&nbsp;&nbsp;";
+			}
+			return html;
+		}
+
+		// 生成发送消息样式
+		function writeSendMsg(msgObj) {
+			// 获取消息类型
+			var objectName = msgObj.objectName;
+			switch(objectName) {
+				// 文本类型
+				case "TxtMsg":
+					msgObj.content.text = _transEmo(msgObj.content.text);
+					break;
+				// 语音类型
+				case "VcMsg":
+					msgObj.content.text = "<label class='winu-display-block yuyin' data-voicepath='" + msgObj.content.voicePath + "'>" + msgObj.content.extra.duration + "s" + setVoiceLength(msgObj.content.extra.duration) + "<i class='iconfont icon-yuyin'></i>" + "</label>";
+					break;
+				// 图片消息
+				case "ImgMsg":
+					msgObj.content.text = "<img src='" + msgObj.content.imageUrl + "' style='width:100%;' class='imagemsg' />";
+					break;
+			}
+			var interText = doT.template($("#senderTpl").text());
+			$("#message-content").append(interText(msgObj));
+			setTimeout(function() {
+				_scrollToEnd();
+			}, 300);
+		}
+
+		// 生成接受信息样式
+		function receiverSendMsg(msgObj) {
+			// 获取接收类型
+			console.log("msg3 is :" + JSON.stringify(msgObj));
+			console.log("msg4 is :" + msgObj.objectName);
+			
+			var objectName = msgObj.objectName;
+			switch(objectName) {
+				// 文本类型
+				case "TxtMsg":
+					msgObj.content.text = _transEmo(msgObj.content.text);
+					msgObj.sentTime = msgObj.receivedTime;
+					break;
+				// 语音类型
+				case "VcMsg":
+					msgObj.content.text = "<label class='winu-display-block yuyin' data-voicepath='" + msgObj.content.voicePath + "'>" + "<i class='iconfont icon-yuyin'></i>" + setVoiceLength(msgObj.content.extra.duration) + msgObj.content.extra.duration + "s"; +"</label>";
+					msgObj.sentTime = msgObj.receivedTime;
+					break;
+				// 图片消息
+				case "ImgMsg":
+					msgObj.content.text = "<img src='" + msgObj.content.imageUrl + "' style='width:100%;' class='imagemsg' />";
+					msgObj.sentTime = msgObj.receivedTime;
+					break;
+			}
+			// 开始渲染
+			var interText = doT.template($("#receiverTpl").text());
+			$("#message-content").append(interText(msgObj));
+			setTimeout(function() {
+				_scrollToEnd();
+			}, 300);
+		}
+
+		// 打开图片浏览
+		// imgs：需要预览的图片集合
+		function openImageBrowser(imgs, index) {
+			imageBrowser.openImages({
+				imageUrls : imgs,
+				showList : false,
+				activeIndex : index
+			});
+		}
+
+		Zepto(function($) {
+			// 点击显示图片预览
+			$("#message-content").on("tap", ".imagemsg", function() {
+				var showImgsArr = [];
+				$("#message-content .imagemsg").each(function() {
+					var srcPath = $(this).attr("src");
+					showImgsArr.push(srcPath);
+				});
+				var index = showImgsArr.indexOf($(this).attr("src"));
+				openImageBrowser(showImgsArr, index);
+			});
+			// 点击语音播放
+			$("#message-content").on("tap", ".yuyin", function() {
+				// 先停止所有播放
+				api.stopPlay();
+				$(".yuyin").each(function() {
+					$(this).find(".icon-yuyin").removeClass("red");
+				});
+				var $that = $(this);
+				$that.find(".icon-yuyin").addClass("red");
+				var voicepath = $(this).attr("data-voicepath");
+				// 开始播放
+				api.startPlay({
+					path : voicepath
+				}, function() {
+					$that.find(".icon-yuyin").removeClass("red");
+				});
+			});
+		});
+		apiready = function() {
+			// 引入图片浏览模块
+			imageBrowser = api.require('imageBrowser');
+			// 监听是否需要滚动到底部
+			_addEventListener("scrollButton", function() {
+				setTimeout(function() {
+					_scrollToEnd();
+				}, 30);
+			});
+			// 0.0  请求获取历史消息
+			_sendEvent("getNewMsgStart", {
+				conversationType : api.pageParam.conversationType,
+				targetId : api.pageParam.targetId,
+				oldestMessageId : -1
+			});
+			// 广播事件，通知成功获取到历史数据
+			_addEventListener("getNewMsgEnd", function(ret) {
+				if (ret && ret.value) {
+					var result = ret.value;
+					var msglist = typeof result == "object" ? result : $api.strToJson(result);
+					// 渲染消息
+					if (msglist && msglist.length > 0) {
+						for (var i = msglist.length - 1; i >= 0; i--) {
+							var msgObj = msglist[i];
+							msgObj.extra = $api.strToJson(msgObj.extra);
+							// 发送方
+							if (msgObj.messageDirection == "SEND") {
+								writeSendMsg(msgObj);
+							}
+							// 接收方
+							else {
+								receiverSendMsg(msgObj);
+							}
+						}
+						setTimeout(function() {
+							_scrollToEnd();
+						}, 300);
+					}
+				}
+			});
+			// 1.0 监听发送准备事件
+			_addEventListener("sendMsgPrepare", function(ret) {
+				if (ret && ret.value) {
+					var msg = ret.value;
+					
+					console.log("msg2 is :" + ret);
+					console.log("msg21 is :" + ret.value);
+					console.log("msg3 is :" + msg.content);
+					console.log("msg4 is :" + msg.extra);
+					
+					msg.extra = $api.strToJson(msg.extra);
+					// 渲染模板引擎
+					writeSendMsg(msg);
+					$(".aui-chat-sender[data-msgid='" + msg.messageId + "']").find(".aui-chat-status").removeClass("winu-display-none");
+				}
+			});
+			// 2.0 监听是否发送成功
+			_addEventListener("sendMsgSuccess", function(msg) {
+				if (msg.content) {
+					//var msg = msg.content;
+					//隐藏加载图标
+					$(".aui-chat-sender[data-msgid='" + msg.msgId + "']").find(".aui-chat-status").addClass("winu-display-none");
+				}
+			});
+			// 3.0 监听是否发送失败
+			_addEventListener("sendMsgError", function(ret) {
+				if (ret && ret.value) {
+					var msg = ret.value;
+					//隐藏加载图标
+					$(".aui-chat-sender[data-msgid='" + msg.messageId + "']").find(".aui-chat-status i").attr("class", "aui-iconfont  iconfont icon-jinggao").css("color", "#f00");
+				}
+			});
+			// 4.0 监听是否有消息进来
+			_addEventListener("receivedMsg", function(ret) {
+				if (ret && ret.value) {
+					// 清除会话
+					_sendEvent("clearMessages", {
+						conversationType : api.pageParam.conversationType,
+						targetId : api.pageParam.targetId
+					});
+					console.log("receivedMsg msg is :" + JSON.stringify(ret));
+					
+					// 判断是否是自己
+					var msg = ret.value;
+					user_id = $api.getStorage("user_id");
+					if (msg.targetId == user_id) {
+						msg.extra = $api.strToJson(msg.extra);
+						msg.sentTime = msg.receivedTime;
+						// 渲染模板引擎
+						receiverSendMsg(msg);
+					}
+				}
+			});
+			// 清除会话
+			_sendEvent("clearMessages", {
+				conversationType : api.pageParam.conversationType,
+				targetId : api.pageParam.targetId
+			});
+			// 下拉刷新
+			_setRefreshHeaderInfo(function() {
+				api.refreshHeaderLoadDone();
+			});
+		};
+	</script>
+</html>

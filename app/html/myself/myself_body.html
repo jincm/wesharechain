@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="copyright" content="www.apicloud.com" />
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+<title>myself</title>
+<link rel="stylesheet" type="text/css" href="../../css/app_common.css" />
+<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+<link rel="stylesheet" type="text/css" href="../../css/idangerous.swiper.css">
+
+<style>
+.exitbtn {margin: 15px 10px;border-radius: 4px;border: 1px solid #D33A31;background-color: #fff;color: #D33A31;text-align: center;height: 2em;line-height: 2em;}
+</style>
+
+</head>
+<body>
+
+<!-- 1 用户登录 -->
+<div id="data_div"></div>
+
+<script id="mytmpl" type="text/x-dot-template">
+<div class="egret-flex-item profile"  tapmode="fmbtnhover" onclick="openUserDetail('{{=it.user_id}}')">
+	<div class="egret-flex-item-logo">
+		<img src="../../image/test/frame0103cover05.jpg" alt="" class="">
+	</div>
+	<div class="egret-flex-item-shelf">
+		{{ if(it.user_id){ }}
+		<div class="egret-flex-item-shelf01">{{=it.user_name}}</div>
+		{{ }else{ }}
+		<div class="egret-flex-item-shelf01">登陆</div>
+		{{ } }}
+		{{ if(it.user_id){ }}
+		<span class="egret-flex-item-shelf02">{{=it.user_id}}</span>
+		{{ }else{ }}
+		<span class="egret-flex-item-shelf02">个人信息</span>
+		{{ } }}
+	</div>
+	<div class="egret-flex-item-shelf">
+		<span class="egret-flex-item-shelf01">资料</span>
+		<!--<img src="../../image/cm2_list_icn_arr.png" alt="" class="">-->
+	</div>
+</div>
+</script>
+
+<!--			
+<div class="userinfo">
+	<div class="userinfocol01 userinfocol br">
+		<div class="info">动态</div>
+		<div class="num">0</div>
+	</div>
+	<div class="userinfocol02 userinfocol br">
+		<div class="info">关注</div>
+		<div class="num">9</div>
+	</div>
+	<div class="userinfocol03 userinfocol">
+		<div class="info">粉丝</div>
+		<div class="num">0</div>
+	</div>
+</div>
+-->
+
+<!-- 2 我的消息 -->
+<div class="egret-flex-item isolateitem-top isolateitem-bottom" tapmode="fmbtnhover" onclick="openNewWin('message')">
+	<div class="egret-flex-item-logo">
+		<img src="../../image/ic_nearby_select.png" alt="" class="">
+	</div>
+	<div class="egret-flex-item-shelf">
+		<div class="egret-flex-item-shelf01">我的文章</div>
+	</div>
+	<div class="egret-flex-item-arrow">
+		<img src="../../image/cm2_list_icn_arr.png" alt="" class="">
+	</div>
+</div>
+
+<!-- 3  -->
+<div class="egret-flex-item isolateitem-top" tapmode="fmbtnhover" onclick="openNewWin('liuliangbao')">
+	<div class="egret-flex-item-logo">
+		<img src="../../image/ic_nearby_select.png" alt="" class="">
+	</div>
+	<div class="egret-flex-item-shelf">
+		<div class="egret-flex-item-shelf01">设置</div>
+	</div>
+	<div class="egret-flex-item-arrow">
+		<img src="../../image/cm2_list_icn_arr.png" alt="" class="">
+	</div>
+</div>
+<div class="egret-flex-item" tapmode="fmbtnhover" onclick="openNewWin('settingtime')">
+	<div class="egret-flex-item-logo">
+		<img src="../../image/ic_nearby_select.png" alt="" class="">
+	</div>
+	<div class="egret-flex-item-shelf">
+		<div class="egret-flex-item-shelf01">积分</div>
+	</div>
+	<div class="egret-flex-item-arrow">
+		<img src="../../image/cm2_list_icn_arr.png" alt="" class="">
+	</div>
+</div>
+<div class="egret-flex-item isolateitem-bottom" tapmode="fmbtnhover" onclick="openNewWin('setting')">
+	<div class="egret-flex-item-logo">
+		<img src="../../image/ic_nearby_select.png" alt="" class="">
+	</div>
+	<div class="egret-flex-item-shelf">
+		<div class="egret-flex-item-shelf01">草稿箱</div>
+	</div>
+	<div class="egret-flex-item-arrow">
+		<img src="../../image/cm2_list_icn_arr.png" alt="" class="">
+	</div>
+</div>
+
+<!-- 4 -->
+<div class="egret-flex-item isolateitem-top" tapmode="fmbtnhover" onclick="openNewWin('about')">
+	<div class="egret-flex-item-logo">
+		<img src="../../image/ic_nearby_select.png" alt="" class="">
+	</div>
+	<div class="egret-flex-item-shelf">
+		<div class="egret-flex-item-shelf01">我的收藏</div>
+	</div>
+	<div class="egret-flex-item-arrow">
+		<img src="../../image/cm2_list_icn_arr.png" alt="" class="">
+	</div>
+</div>
+<div class="egret-flex-item isolateitem-bottom" tapmode="fmbtnhover" onclick="openNewWin('about')">
+	<div class="egret-flex-item-logo">
+		<img src="../../image/ic_nearby_select.png" alt="" class="">
+	</div>
+	<div class="egret-flex-item-shelf">
+		<div class="egret-flex-item-shelf01">帮助</div>
+	</div>
+	<div class="egret-flex-item-arrow">
+		<img src="../../image/cm2_list_icn_arr.png" alt="" class="">
+	</div>
+</div>
+
+<div class="exitbtn" id="exit" tapmode="" onclick="toExit()">退出登录</div>
+
+<!-- 
+<div class="exitbtn" tapmode="exitbtnhover" onclick="">退出登录</div> 
+
+<div class="exitbtn" id="register" tapmode="" onclick="toRegister()">注册</div>
+<div class="exitbtn" id="login" tapmode="" onclick="toLogin()">登录</div>
+<div class="exitbtn" id="lbs" tapmode="" onclick="get_lbs()">LBS</div>
+<div class="exitbtn" id="upload_pic" tapmode="" onclick="upload_pic()">上传图片</div>
+-->
+	
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../../script/app.js"></script>
+<script type="text/javascript">
+
+function toExit(){
+	$api.rmStorage("user_id");
+	$api.rmStorage("token");
+	//$api.clearStorage ();
+    
+    alert("登陆信息已清除");
+    api.openWin({
+        name:'login',
+        url:'../win_login.html'
+    })
+}
+function openUserDetail(user_id) {
+	if("undefined" == user_id || user_id.length == 0){
+        api.openWin({
+            name:'login',
+            url:'../win_login.html'
+        });
+     }else{
+        api.openWin({
+            name:'myself_info_win',
+            url:'./myself_info_win.html'
+        }); 
+     }
+	/*winName = grouptype + "_" + type + "_detail"
+	winUrl = winName + "_win.html"
+    api.openWin({
+        name: winName,
+        url: winUrl,
+        pageParam: {dataId: did}
+    });*/
+}
+
+function openNewWin (winname) {
+
+	alert("应该跳转到user页面  " + winname);  
+	/*api.openWin({
+		name: winname,
+		url: './'+ winname +'.html',
+		delay:200
+	});*/
+}
+
+function loadLogin(){
+	user_id = $api.getStorage("user_id");
+	console.log("user_id is " + user_id);
+	var obj = {"user_id":user_id,"user_name":"老猪","content":"user1 is a good man"};
+	//obj = {};
+
+    var data_div = $api.byId('data_div');
+    var tpl = $api.byId('mytmpl').text;
+    var tempFn = doT.template(tpl);
+    data_div.innerHTML = tempFn(obj);
+}
+apiready = function  () {
+	loadLogin();
+}
+loadLogin();
+	
+//added by jincm for test
+function toLogin(){
+    api.openWin({
+        name:'login',
+        url:'../win_login.html'
+    })
+}
+function toRegister(){
+    api.openWin({
+        name:'register',
+        url:'../win_register.html'
+    })
+}
+function get_lbs(){
+	console.log("start location");
+    var baiduMap = api.require('baiduMap');
+	baiduMap.getLocation(
+	    function(ret, err){
+	        var sta = ret.status;
+	        var lat = ret.lat;
+	        var lon = ret.lon;
+	        var t = ret.timestamp;
+	        if(sta){
+	            var str = '经度：'+ lon +'<br>';
+	             str += '纬度：'+ lat +'<br>';
+	            str += '更新时间：'+ t +'<br>';
+	            api.alert({msg:str});
+	        } else{
+	            api.alert({msg:err.msg});
+	        }
+	    }
+	);
+	//baiduLocation.stopLocation();
+}
+function upload_pic(){
+    /*var obj = api.require('imageSelect');
+	obj.select(
+	    function(ret,err){
+		    if(ret.status) {
+		        api.alert({msg:ret.image});
+		    } else{
+		        api.alert({msg:err.msg});
+		    }
+	});
+	var imageTool = api.require('imageTool');
+	imageTool.openImage(function(ret, err) {
+		api.prompt({title:"信息",
+			msg:"图片名称："+ret.imgName+"图片大小："+ret.imgSize+"图片路径："+ret.imgPath,
+			buttons:["取消","确定"]});
+	});*/
+	
+	//UIMediaScanner获取的图片路径通过api.ajax上传图片
+	api.getPicture({
+	    sourceType: 'camera',
+	    encodingType: 'jpg',
+	    mediaValue: 'pic',
+	    destinationType: 'url',
+	    allowEdit: true,
+	    quality: 80,
+	    targetWidth:300,
+	    targetHeight:400,
+	    saveToPhotoAlbum: true
+	}, function(ret, err){
+	    if (ret) {
+	        //api.alert({msg:ret.data});
+	        //api.showProgress();
+	    	filepath = ret.data;
+	    	console.log(filepath);
+	    			   
+	        var token = $api.getStorage("token");
+	        console.log(token);
+			http_url = "http://123.56.159.76/v1/ay/lost/563ed050ce6a3d1f234f3eba/upload_imgs?token=" + token;//url may write in key.xml
+	    	
+	    	//mybody = JSON.stringify({"account": token, "passwd": "test2"})
+	    	//console.log(mybody);
+	    	
+	    	api.ajax({
+		        url:http_url,
+		        method: 'post',
+			    timeout: 30,
+			    dataType: 'json',
+			    returnAll:true,
+			    data:{
+			    	//error : values:{'accout': username, 'identify_code':identify_code, 'passwd': password}
+			    	//files:{"file":["filepath1","filepath2"]}
+			    	//body: mybody,
+			    	//values和files可以同时使用，其它参数都不能同时使用
+			    	files: {"file": filepath}
+			    }
+	        },function(ret,err){
+	        	//coding...
+	        	//api.hideProgress();
+	        	if (ret) {
+			        var urlJson = JSON.stringify(ret);
+			        console.log(JSON.stringify(ret));
+			        console.log(JSON.stringify(ret.body))
+			        api.alert({
+	                    title: '上传成功',
+	                    msg: ret.body.img_urls,
+	                    buttons: ['确定']
+	                });                
+			    }else {
+			        api.alert({
+			            msg:('错误码：'+err.code+'；错误信息：'+err.msg+'网络状态码：'+err.statusCode)
+			        });
+			    }
+	        });		        
+	    } else{
+	        api.alert({msg:err.msg});
+	    }
+	});
+}
+</script>
+</html>
