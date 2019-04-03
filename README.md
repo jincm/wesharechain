@@ -10,3 +10,4 @@ WeShareChain
 app:保存相关移动端代码
 web:保存相关网站代码
 chain:WeshareChain 代码
+server：后端部分代码
