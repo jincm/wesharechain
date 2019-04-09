@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b2096e2c-8953-4d27-aab3-24e6fcb96e24" name="Default" comment="" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/block$crypto_test.coverage" NAME="crypto_test Coverage Results" MODIFIED="1554686887690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ut" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="block" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>view_handlers</find>
+      <find>default_settings</find>
+      <find>encryp</find>
+      <find>token</find>
+      <find>known_sha1_tsstr</find>
+    </findStrings>
+    <dirStrings>
+      <dir>C:\Users\imzihuang\PycharmProjects\block\util</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/stop.sh" />
+        <option value="$PROJECT_DIR$/settings.py" />
+        <option value="$PROJECT_DIR$/db/models.py" />
+        <option value="$PROJECT_DIR$/db/example/Commodity.py" />
+        <option value="$PROJECT_DIR$/db/example/commodity.py" />
+        <option value="$PROJECT_DIR$/db/example/order.py" />
+        <option value="$PROJECT_DIR$/db/example/user.py" />
+        <option value="$PROJECT_DIR$/db/example/verify_manage.py" />
+        <option value="$PROJECT_DIR$/operation/commodity.py" />
+        <option value="$PROJECT_DIR$/operation/order.py" />
+        <option value="$PROJECT_DIR$/operation/verify_manage.py" />
+        <option value="$PROJECT_DIR$/config/mysql.ini" />
+        <option value="$PROJECT_DIR$/util/convert.py" />
+        <option value="$PROJECT_DIR$/api/account/update.py" />
+        <option value="$PROJECT_DIR$/api/account/reset_pwd.py" />
+        <option value="$PROJECT_DIR$/api/account/infos.py" />
+        <option value="$PROJECT_DIR$/api/account/__init__.py" />
+        <option value="$PROJECT_DIR$/api/commodity/create.py" />
+        <option value="$PROJECT_DIR$/api/commodity/infos.py" />
+        <option value="$PROJECT_DIR$/api/commodity/__init__.py" />
+        <option value="$PROJECT_DIR$/api/order/create.py" />
+        <option value="$PROJECT_DIR$/api/order/update.py" />
+        <option value="$PROJECT_DIR$/api/order/update_status.py" />
+        <option value="$PROJECT_DIR$/api/order/infos.py" />
+        <option value="$PROJECT_DIR$/api/commodity/update.py" />
+        <option value="$PROJECT_DIR$/api/order/__init__.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/api/verify_manage.py" />
+        <option value="$PROJECT_DIR$/api/__init__.py" />
+        <option value="$PROJECT_DIR$/api/account/signin.py" />
+        <option value="$PROJECT_DIR$/api/account/login.py" />
+        <option value="$PROJECT_DIR$/operation/user.py" />
+        <option value="$PROJECT_DIR$/util/common_util.py" />
+        <option value="$PROJECT_DIR$/util/crypto_rc4.py" />
+        <option value="$PROJECT_DIR$/ut/crypto_test.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="block" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../plot" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\imzihuang\PycharmProjects\block\util" />
+      <recent name="C:\Users\imzihuang\PycharmProjects\block\operation" />
+      <recent name="C:\Users\imzihuang\PycharmProjects\block" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unittests in crypto_test.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ut" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="block" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/ut/crypto_test.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in crypto_test.py" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b2096e2c-8953-4d27-aab3-24e6fcb96e24" name="Default" comment="" />
+      <created>1554560206927</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1554560206927</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2595949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39910814" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/api/account/login.py" />
+    <entry file="file://$PROJECT_DIR$/api/commodity/create.py" />
+    <entry file="file://$PROJECT_DIR$/db/example/user.py" />
+    <entry file="file://$PROJECT_DIR$/db/models.py" />
+    <entry file="file://$PROJECT_DIR$/operation/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/operation/user.py" />
+    <entry file="file://$PROJECT_DIR$/operation/commodity.py" />
+    <entry file="file://$PROJECT_DIR$/operation/order.py" />
+    <entry file="file://$PROJECT_DIR$/operation/verify_manage.py" />
+    <entry file="file://$PROJECT_DIR$/db/example/order.py" />
+    <entry file="file://$PROJECT_DIR$/config/mysql.ini" />
+    <entry file="file://$PROJECT_DIR$/api/plot.py" />
+    <entry file="file://$PROJECT_DIR$/stop.sh" />
+    <entry file="file://$PROJECT_DIR$/db/base.py" />
+    <entry file="file://$PROJECT_DIR$/db/example/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/db/example/commodity.py" />
+    <entry file="file://$PROJECT_DIR$/db/example/order.py" />
+    <entry file="file://$PROJECT_DIR$/db/example/verify_manage.py" />
+    <entry file="file://$PROJECT_DIR$/db/models.py" />
+    <entry file="file://$PROJECT_DIR$/operation/example/user.py" />
+    <entry file="file://$PROJECT_DIR$/operation/example/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/db/example/user.py" />
+    <entry file="file://$PROJECT_DIR$/operation/commodity.py" />
+    <entry file="file://$PROJECT_DIR$/operation/order.py" />
+    <entry file="file://$PROJECT_DIR$/config/service.ini" />
+    <entry file="file://$PROJECT_DIR$/util/convert.py" />
+    <entry file="file://$PROJECT_DIR$/config/mysql.ini" />
+    <entry file="file://$PROJECT_DIR$/operation/verify_manage.py" />
+    <entry file="file://$PROJECT_DIR$/settings.py" />
+    <entry file="file://$PROJECT_DIR$/api/account/reset_pwd.py" />
+    <entry file="file://$PROJECT_DIR$/api/account/update.py" />
+    <entry file="file://$PROJECT_DIR$/api/commodity/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/api/order/update_status.py" />
+    <entry file="file://$PROJECT_DIR$/api/commodity/infos.py" />
+    <entry file="file://$PROJECT_DIR$/api/order/infos.py" />
+    <entry file="file://$PROJECT_DIR$/main.py" />
+    <entry file="file://$PROJECT_DIR$/api/order/create.py" />
+    <entry file="file://$PROJECT_DIR$/api/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/api/verify_manage.py" />
+    <entry file="file://$PROJECT_DIR$/api/commodity/update.py" />
+    <entry file="file://$PROJECT_DIR$/api/order/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/api/commodity/create.py" />
+    <entry file="file://$PROJECT_DIR$/api/account/infos.py" />
+    <entry file="file://$PROJECT_DIR$/api/account/login.py" />
+    <entry file="file://$PROJECT_DIR$/api/account/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/operation/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/api/account/signin.py" />
+    <entry file="file://$PROJECT_DIR$/util/crypto_rc4.py" />
+    <entry file="file://$PROJECT_DIR$/util/common_util.py" />
+    <entry file="file://$PROJECT_DIR$/ut/crypto_test.py" />
+    <entry file="file://$PROJECT_DIR$/operation/user.py" />
+  </component>
+</project>
