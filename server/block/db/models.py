@@ -45,6 +45,20 @@ class UserInfo(Base, ModelBase):
     def to_dict(self):
         return _to_dict(self)
 
+class WxUserinfo(Base, ModelBase):
+    __tablename__ = 'wx_userinfo'
+    id = Column(VARCHAR(36), primary_key=True)
+    user_id = Column(VARCHAR(36), nullable=False)
+    openid = Column(VARCHAR(50) , nullable=False)
+    code = Column(VARCHAR(36), nullable=False)
+    session_key = Column(VARCHAR(50), nullable=False)
+    wx_name = Column(VARCHAR(50))
+    create_time = Column(DateTime, default=datetime.now, nullable=False)
+    updated_time = Column(DateTime, default=datetime.now, onupdate=datetime.now)
+    deleted = Column(Boolean, default=False)
+
+    def to_dict(self):
+        return _to_dict(self)
 
 class VerifyManage(Base, ModelBase):
     __tablename__ = 'verify_manage'
