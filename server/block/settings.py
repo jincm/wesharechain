@@ -13,6 +13,8 @@ default_settings = {
     'enabled_methods': ['get', 'post', 'put', 'patch', 'delete'],
     'log_info': "./log/block_info.log",
     'log_error': "./log/block_error.log",
+    'static_path': STATIC_PATH,
+    'commodity_path': '/image/commodity/'
 }
 
 models = []
