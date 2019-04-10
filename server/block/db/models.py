@@ -49,7 +49,7 @@ class WxUserinfo(Base, ModelBase):
     __tablename__ = 'wx_userinfo'
     id = Column(VARCHAR(36), primary_key=True)
     user_id = Column(VARCHAR(36), nullable=False)
-    openid = Column(VARCHAR(50) , nullable=False)
+    openid = Column(VARCHAR(50), nullable=False)
     code = Column(VARCHAR(36), nullable=False)
     session_key = Column(VARCHAR(50), nullable=False)
     wx_name = Column(VARCHAR(50))
@@ -97,6 +97,7 @@ class GoldCommodity(Base, ModelBase):
     original_price = Column(Float, default=0)
     real_price = Column(Float, default=0)
     commodity_type = Column(Integer, default=0)
+    img_path = Column(VARCHAR(200))
     create_time = Column(DateTime, default=datetime.now, nullable=False)
     updated_time = Column(DateTime, default=datetime.now, onupdate=datetime.now)
     deleted = Column(Boolean, default=False)
