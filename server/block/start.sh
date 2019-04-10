@@ -1,0 +1,1 @@
+nohup python -O main.py --port=9090 &
