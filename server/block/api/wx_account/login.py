@@ -11,8 +11,8 @@ from operation.wx_user import WxUserOp
 
 from util.ini_client import ini_load
 
-_conf = ini_load('config/service.ini')
-game_dic_con = _conf.get_fields('game_wx')
+_conf = ini_load('config/wx.ini')
+game_dic_con = _conf.get_fields('key')
 
 LOG = logging.getLogger(__name__)
 
