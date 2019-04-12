@@ -6,6 +6,11 @@ from operation import order
 import logging
 import json
 from util import common_util
+from util.ini_client import ini_load
+
+_conf = ini_load('config/service.ini')
+_dic_con = _conf.get_fields('token')
+timeout = _dic_con.get('timeout')
 
 LOG = logging.getLogger(__name__)
 
@@ -22,7 +27,7 @@ class OrderHandelr(RequestHandler):
             status = self.get_argument('status', 0)
             limit = self.get_argument('limit', 0)
             offset = self.get_argument('offset', 0)
-            is_timeout = common_util.validate_token_time(token)
+            is_timeout = common_util.validate_token_time(token, timeout)
             if is_timeout:
                 self.finish({'state': 1,
                              'message': 'Token expired'
@@ -46,7 +51,7 @@ class OrderHandelr(RequestHandler):
             original_price = self.get_argument('original_price', '')
             real_price = self.get_argument('real_price', '')
             token = self.get_argument('token', '')
-            is_timeout = common_util.validate_token_time(token)
+            is_timeout = common_util.validate_token_time(token, timeout)
             if is_timeout:
                 self.finish({'state': 1,
                              'message': 'Token expired'

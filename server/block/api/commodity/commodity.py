@@ -9,6 +9,11 @@ import time
 from PIL import Image
 from util import common_util
 from operation import commodity
+from util.ini_client import ini_load
+
+_conf = ini_load('config/service.ini')
+_dic_con = _conf.get_fields('token')
+timeout = _dic_con.get('timeout')
 
 LOG = logging.getLogger(__name__)
 
@@ -65,7 +70,7 @@ class CommodityHandler(RequestHandler):
 
             self._img_resize(file_path)
 
-            is_timeout = common_util.validate_token_time(token)
+            is_timeout = common_util.validate_token_time(token, timeout)
             if is_timeout:
                 self.finish({'state': 1,
                              'message': 'Token expired'
@@ -108,13 +113,13 @@ class CommodityHandler(RequestHandler):
 
             self._img_resize(file_path)
 
-            is_timeout = common_util.validate_token_time(token)
+            is_timeout = common_util.validate_token_time(token, timeout)
             if is_timeout:
                 self.finish({'state': 1,
                              'message': 'Token expired'
                              })
             op = commodity.CommodityOp()
-            op.update(id,name, describe, original_price, real_price, commodity_type, file_path)
+            op.update(id, name, describe, original_price, real_price, commodity_type, file_path)
             self.finish({
                 'state': 0,
                 'message': 'ok',

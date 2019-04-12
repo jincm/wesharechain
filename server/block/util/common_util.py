@@ -4,12 +4,7 @@ import uuid
 import time
 from util import crypto_rc4
 from random import randint
-from util import common_util
-from util.ini_client import ini_load
 
-_conf = ini_load('config/service.ini')
-_dic_con = _conf.get_fields('token')
-timeout = _dic_con.get('timeout')
 
 def create_id():
     return uuid.uuid4().get_hex()
@@ -50,9 +45,9 @@ def dgen_token(token):
     return sign, int(time)
 
 
-def validate_token_time(token):
-    sign,time = dgen_token(token)
-    interval_time = time.time() - time
+def validate_token_time(token, timeout=18000):
+    sign, token_time = dgen_token(token)
+    interval_time = time.time() - token_time
     if interval_time > timeout:
         return True
     return False
