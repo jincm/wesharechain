@@ -13,6 +13,7 @@ def create_verifycode():
     生成注册验证码
     :return:
     """
+    return "888888"
     verify_code = ''.join((str(randint(0, 9)) for _ in range(6)))
     return verify_code
 
@@ -39,3 +40,7 @@ def dgen_token(token):
         return "", -1
     sign, time = _.split(":")
     return sign, int(time)
+
+
+def send_vrifycode(verify_code):
+    pass

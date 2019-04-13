@@ -100,3 +100,5 @@ def model_deleted(model, id):
             "deleted": True
         },
         synchronize_session=False)
+
+
