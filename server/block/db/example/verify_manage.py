@@ -18,5 +18,8 @@ class VerifyDB(Base):
 
     def verify_manage_get_by_phone(self, phone):
         query = api.model_query(self.model).filter_by(phone=phone)
-        return query
+        result = query.first()
+        if not result:
+            return None
+        return result
 
