@@ -5,8 +5,10 @@ import time
 from util import crypto_rc4
 from random import randint
 
+
 def create_id():
     return uuid.uuid4().get_hex()
+
 
 def create_verifycode():
     """
@@ -16,6 +18,7 @@ def create_verifycode():
     return "888888"
     verify_code = ''.join((str(randint(0, 9)) for _ in range(6)))
     return verify_code
+
 
 def gen_token(sign, time):
     """
@@ -27,6 +30,7 @@ def gen_token(sign, time):
     content = ":".join((sign, str(time)))
     token = crypto_rc4.encrypt(content, crypto_rc4.SECRET_KEY)
     return token
+
 
 def dgen_token(token):
     """
@@ -42,5 +46,13 @@ def dgen_token(token):
     return sign, int(time)
 
 
+
 def send_vrifycode(verify_code):
     pass
+
+def validate_token_time(token, timeout=18000):
+    sign, token_time = dgen_token(token)
+    interval_time = time.time() - token_time
+    if interval_time > timeout:
+        return True
+    return False

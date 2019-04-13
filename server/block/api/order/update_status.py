@@ -4,6 +4,13 @@ from tornado.web import RequestHandler
 from util.exception import ParamExist
 import logging
 import json
+from util import common_util
+from operation import order
+from util.ini_client import ini_load
+
+_conf = ini_load('config/service.ini')
+_dic_con = _conf.get_fields('token')
+timeout = _dic_con.get('timeout')
 
 LOG = logging.getLogger(__name__)
 
@@ -18,8 +25,21 @@ class UpdateStatusHandler(RequestHandler):
             token = self.get_argument('token', '')
             status = self.get_argument('status', 0)
             #更新订单状态，先验证订单当前状态，只能往大了走，比如0-》1
+            is_timeout = common_util.validate_token_time(token, timeout)
+            if is_timeout:
+                self.finish({'state': 1,
+                             'message': 'Token expired'
+                             })
+            op = order.OrderOp()
+            order_detail = op.lists(id)[0]
+            per_status = order_detail.status
+            if status <= per_status:
+                self.finish({'state': 1,
+                             'message': 'Status can not change.'})
+            op.update(id, status)
+            self.finish({'state': 0,
+                         'message': 'ok'})
 
-            pass
         except ParamExist as ex:
             LOG.error("Update order status error:%s" % ex)
             self.finish(json.dumps({'state': 9, 'message': 'Update order status params exit'}))
