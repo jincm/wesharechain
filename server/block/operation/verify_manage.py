@@ -27,8 +27,8 @@ class VerifyOp(Base):
         verify_info = self.exampledb.verify_manage_get_by_phone(phone)
         if verify_info:
             _now = datetime.now()
-            if convert.bs2utf8(verify_info.verify_code) == code and verify_info.update_time:
-                _ = (_now - verify_info.update_time).seconds
+            if convert.bs2utf8(verify_info.verify_code) == code and verify_info.updated_time:
+                _ = (_now - verify_info.updated_time).seconds
                 LOG.info("verify code time:%d" % _)
                 if _ < 15 * 60:
                     return True
