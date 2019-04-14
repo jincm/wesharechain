@@ -14,6 +14,8 @@ class UserTestCase(unittest.TestCase):
     def setUp(self):
         self.op = UserOp()
         self.code = VerifyOp()
+        self.user_id = ""
+        self.time = 0
         # pass
 
     def tearDown(self):
@@ -31,7 +33,7 @@ class UserTestCase(unittest.TestCase):
 
     def test_03_token(self):
         print "test_03_token"
-
+        print "user_id=%s,type=%s" % (self.user_id, type(self.user_id))
         content = ":".join((self.user_id, self.time))
         _ = crypto_rc4.decrypt(self.token, crypto_rc4.SECRET_KEY)
         self.assertTrue(_ == content)
