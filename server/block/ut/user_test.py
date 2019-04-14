@@ -14,7 +14,7 @@ class UserTestCase(unittest.TestCase):
     def setUp(self):
         self.op = UserOp()
         self.code = VerifyOp()
-        pass
+        # pass
 
     def tearDown(self):
         pass
@@ -56,5 +56,12 @@ class UserTestCase(unittest.TestCase):
 
         self.assertTrue("13225004810" == ph)
 
+
 if __name__ == "__main__":
-    unittest.main()
+    # unittest.main()
+    suite = unittest.TestSuite()
+    suite.addTest(UserTestCase("test_01_create"))
+    suite.addTest(UserTestCase("test_02_login"))
+    suite.addTest(UserTestCase("test_03_token"))
+    suite.addTest(UserTestCase("test_04_update"))
+    unittest.TextTestRunner(verbosity=3).run(suite)
