@@ -20,22 +20,25 @@ class UserTestCase(unittest.TestCase):
         pass
 
     def test_02_login(self):
-        """
-
-        :return:
-        """
+        print "test_02_login"
         _ = self.op.login("1748593217")
+        print("login_re=%s"%_)
         self.user_id = _.get("id")
         self.time = int(time.time())
+        print "user_id=%s,type=%s"%(self.user_id, type(self.user_id))
         self.token = common_util.gen_token(_.get("id"), self.time)
         #self.assertTrue(True)
 
     def test_03_token(self):
+        print "test_03_token"
+
         content = ":".join((self.user_id, self.time))
         _ = crypto_rc4.decrypt(self.token, crypto_rc4.SECRET_KEY)
         self.assertTrue(_ == content)
 
     def test_01_create(self):
+        print "test_01_create"
+
         code_create = self.code.create(phone="1748593217", verify_code="888888")
         self.assertTrue(code_create is not None)
         verify_re = self.code.verify_code_phone(phone="1748593217", code="888888")
@@ -44,6 +47,8 @@ class UserTestCase(unittest.TestCase):
         self.assertTrue(user_create is not None)
 
     def test_04_update(self):
+        print "test_04_update"
+
         update_dict = {
             "phone": "13225004810",
             "sex": 0,
