@@ -26,7 +26,7 @@ class UserTestCase(unittest.TestCase):
         self.user_id = convert.bs2utf8(_.get("id"))
         self.time = int(time.time())
         print "user_id=%s,type=%s"%(self.user_id, type(self.user_id))
-        self.token = common_util.gen_token(_.get("id"), self.time)
+        self.token = common_util.gen_token(self.user_id, self.time)
         #self.assertTrue(True)
 
     def test_03_token(self):
