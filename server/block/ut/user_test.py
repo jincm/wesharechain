@@ -11,12 +11,15 @@ from datetime import datetime
 
 
 class UserTestCase(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        UserTestCase.user_id = ""
+        UserTestCase.time = 0
+
     def setUp(self):
         self.op = UserOp()
         self.code = VerifyOp()
-        self.user_id = ""
-        self.time = 0
-        # pass
+
 
     def tearDown(self):
         pass
@@ -25,16 +28,16 @@ class UserTestCase(unittest.TestCase):
         print "test_02_login"
         _ = self.op.login("1748593217")
         print("login_re=%s"%_)
-        self.user_id = convert.bs2utf8(_.get("id"))
-        self.time = int(time.time())
-        print "user_id=%s,type=%s"%(self.user_id, type(self.user_id))
-        self.token = common_util.gen_token(self.user_id, self.time)
+        UserTestCase.user_id = convert.bs2utf8(_.get("id"))
+        UserTestCase.time = int(time.time())
+        print "user_id=%s,type=%s"%(UserTestCase.user_id, type(UserTestCase.user_id))
+        self.token = common_util.gen_token(UserTestCase.user_id, UserTestCase.time)
         #self.assertTrue(True)
 
     def test_03_token(self):
         print "test_03_token"
-        print "user_id=%s,type=%s" % (self.user_id, type(self.user_id))
-        content = ":".join((self.user_id, self.time))
+        print "user_id=%s,type=%s" % (UserTestCase.user_id, type(UserTestCase.user_id))
+        content = ":".join((UserTestCase.user_id, UserTestCase.time))
         _ = crypto_rc4.decrypt(self.token, crypto_rc4.SECRET_KEY)
         self.assertTrue(_ == content)
 
@@ -57,9 +60,9 @@ class UserTestCase(unittest.TestCase):
             "birthday": datetime.now(),
             "nick_name": "ahahah",
         }
-        self.op.update(id=self.user_id, **update_dict)
+        self.op.update(id=UserTestCase.user_id, **update_dict)
 
-        ph = self.op.info(id=self.user_id).get('phone')
+        ph = self.op.info(id=UserTestCase.user_id).get('phone')
 
         self.assertTrue("13225004810" == ph)
 
