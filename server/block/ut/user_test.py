@@ -5,7 +5,7 @@ import time
 from operation.user import UserOp
 from operation.verify_manage import VerifyOp
 import unittest
-from util import common_util
+from util import common_util, convert
 import time
 from datetime import datetime
 
@@ -23,7 +23,7 @@ class UserTestCase(unittest.TestCase):
         print "test_02_login"
         _ = self.op.login("1748593217")
         print("login_re=%s"%_)
-        self.user_id = _.get("id")
+        self.user_id = convert.bs2utf8(_.get("id"))
         self.time = int(time.time())
         print "user_id=%s,type=%s"%(self.user_id, type(self.user_id))
         self.token = common_util.gen_token(_.get("id"), self.time)
