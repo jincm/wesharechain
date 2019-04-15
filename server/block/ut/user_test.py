@@ -15,6 +15,7 @@ class UserTestCase(unittest.TestCase):
     def setUpClass(cls):
         UserTestCase.user_id = ""
         UserTestCase.time = 0
+        UserTestCase.code_id = ""
 
     def setUp(self):
         self.op = UserOp()
@@ -22,14 +23,17 @@ class UserTestCase(unittest.TestCase):
 
     def tearDown(self):
         self.op.delete(id=UserTestCase.user_id)
+        self.code.delete(id=UserTestCase.code_id)
 
     def test_01_create(self):
         print "test_01_create"
 
         code_create = self.code.create(phone="1748593217", verify_code="888888")
+        print "code_create=%s" % code_create
         self.assertTrue(code_create is not None)
+        UserTestCase.code_id = convert.bs2utf8(code_create.get("id"))
         verify_re = self.code.verify_code_phone(phone="1748593217", code="888888")
-        self.assertTrue(verify_re == True)
+        self.assertTrue(verify_re==False)
         user_create = self.op.create(phone="1748593217", referrer_id='')
         self.assertTrue(user_create is not None)
 
