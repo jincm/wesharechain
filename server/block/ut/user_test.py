@@ -16,14 +16,16 @@ class UserTestCase(unittest.TestCase):
         UserTestCase.user_id = ""
         UserTestCase.time = 0
         UserTestCase.code_id = ""
+        UserTestCase.token = None
 
     def setUp(self):
         self.op = UserOp()
         self.code = VerifyOp()
 
     def tearDown(self):
-        self.op.delete(id=UserTestCase.user_id)
-        self.code.delete(id=UserTestCase.code_id)
+        # self.op.delete(id=UserTestCase.user_id)
+        # self.code.delete(id=UserTestCase.code_id)
+        pass
 
     def test_01_create(self):
         print "test_01_create"
@@ -44,14 +46,17 @@ class UserTestCase(unittest.TestCase):
         UserTestCase.user_id = convert.bs2utf8(_.get("id"))
         UserTestCase.time = int(time.time())
         print "user_id=%s,type=%s"%(UserTestCase.user_id, type(UserTestCase.user_id))
-        self.token = common_util.gen_token(UserTestCase.user_id, UserTestCase.time)
+        UserTestCase.token = common_util.gen_token(UserTestCase.user_id, UserTestCase.time)
+        print "token=%s" % UserTestCase.token
         #self.assertTrue(True)
 
     def test_03_token(self):
         print "test_03_token"
         print "user_id=%s,type=%s" % (UserTestCase.user_id, type(UserTestCase.user_id))
         content = ":".join((UserTestCase.user_id, str(UserTestCase.time)))
-        _ = crypto_rc4.decrypt(self.token, crypto_rc4.SECRET_KEY)
+        print "content=%s" % content
+        _ = crypto_rc4.decrypt(UserTestCase.token, crypto_rc4.SECRET_KEY)
+        print "_=%s" % _
         self.assertTrue(_ == content)
 
     def test_04_update(self):
